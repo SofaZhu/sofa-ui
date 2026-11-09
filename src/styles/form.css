@@ -1,0 +1,117 @@
+/* Form 表单 */
+.sofa-form {
+  box-sizing: border-box;
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-primary);
+}
+
+.sofa-form-vertical .sofa-form-item {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.sofa-form-inline .sofa-form-item {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 16px;
+  margin-bottom: 0;
+}
+
+.sofa-form-item {
+  display: flex;
+  margin-bottom: 18px;
+  width: 100%;
+}
+
+.sofa-form-item:last-child {
+  margin-bottom: 0;
+}
+
+.sofa-form-item-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  min-height: 32px;
+  padding-right: 12px;
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-primary);
+  box-sizing: border-box;
+}
+
+.sofa-form-vertical .sofa-form-item-label {
+  min-height: auto;
+  padding-right: 0;
+  padding-bottom: 6px;
+}
+
+.sofa-form-item-required-mark {
+  color: var(--sofa-color-error);
+  font-size: var(--sofa-font-size-sm);
+}
+
+.sofa-form-item-optional {
+  color: var(--sofa-text-tertiary);
+  font-size: var(--sofa-font-size-xs);
+}
+
+.sofa-form-item-control {
+  flex: 1;
+  min-width: 0;
+}
+
+.sofa-form-item-control-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sofa-form-item-control-feedback .sofa-input-wrapper {
+  padding-right: 30px;
+}
+
+.sofa-form-item-feedback-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  pointer-events: none;
+}
+
+.sofa-form-item-feedback-success {
+  color: var(--sofa-color-success);
+}
+
+.sofa-form-item-feedback-error {
+  color: var(--sofa-color-error);
+}
+
+/* 校验错误类名：挂在子元素上的输入框样式 */
+.sofa-form-item-error-input.sofa-input-wrapper {
+  border-color: var(--sofa-color-error);
+}
+
+.sofa-form-item-error-input.sofa-input-wrapper:focus-within {
+  border-color: var(--sofa-color-error);
+  box-shadow: 0 0 0 3px var(--sofa-color-error-bg);
+}
+
+.sofa-form-item-explain {
+  font-size: var(--sofa-font-size-xs);
+  margin-top: 4px;
+  color: var(--sofa-text-tertiary);
+}
+
+.sofa-form-item-explain-error {
+  color: var(--sofa-color-error);
+}
+
+.sofa-form-item-disabled {
+  cursor: not-allowed;
+}
+
+.sofa-form-item-disabled .sofa-form-item-label {
+  color: var(--sofa-disabled-color);
+}

@@ -1,0 +1,114 @@
+/* Switch 开关 */
+.sofa-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 44px;
+  height: 22px;
+  border: none;
+  border-radius: var(--sofa-radius-full);
+  background: var(--sofa-fill-color);
+  border: 1px solid var(--sofa-border-color-strong);
+  padding: 0;
+  cursor: pointer;
+  transition: var(--sofa-transition);
+  box-sizing: border-box;
+  font-family: var(--sofa-font-family);
+}
+
+.sofa-switch-small {
+  width: 34px;
+  height: 18px;
+}
+
+.sofa-switch-checked {
+  background: var(--sofa-color-primary);
+  border-color: var(--sofa-color-primary);
+}
+
+.sofa-switch-disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.sofa-switch-slider {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: var(--sofa-shadow-sm);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--sofa-color-primary);
+}
+
+.sofa-switch-small .sofa-switch-slider {
+  width: 12px;
+  height: 12px;
+}
+
+.sofa-switch-checked .sofa-switch-slider {
+  transform: translateX(22px);
+}
+
+.sofa-switch-small.sofa-switch-checked .sofa-switch-slider {
+  transform: translateX(16px);
+}
+
+/* 无文案时文案隐藏 */
+.sofa-switch-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+
+.sofa-switch-checked .sofa-switch-text {
+  opacity: 1;
+}
+
+/* 带文案：滑块与文字按 flex 顺序排列，互不遮挡 */
+.sofa-switch-with-text {
+  width: auto;
+  min-width: 44px;
+}
+
+.sofa-switch-with-text .sofa-switch-slider {
+  position: static;
+  transform: none;
+}
+
+.sofa-switch-with-text .sofa-switch-text {
+  position: static;
+  width: auto;
+  opacity: 1;
+  padding: 0 8px 0 6px;
+  white-space: nowrap;
+  color: var(--sofa-text-primary);
+}
+
+.sofa-switch-with-text:not(.sofa-switch-checked) .sofa-switch-slider {
+  order: 2;
+}
+
+.sofa-switch-with-text:not(.sofa-switch-checked) .sofa-switch-text {
+  order: 1;
+  padding: 0 6px 0 8px;
+}
+
+.sofa-switch-with-text.sofa-switch-checked .sofa-switch-text {
+  order: 2;
+}
+
+.sofa-switch-with-text.sofa-switch-checked .sofa-switch-slider {
+  order: 1;
+}

@@ -1,0 +1,46 @@
+/* Breadcrumb 面包屑 */
+.sofa-breadcrumb {
+  font-size: var(--sofa-font-size-sm);
+}
+
+.sofa-breadcrumb-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sofa-breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--sofa-text-secondary);
+}
+
+.sofa-breadcrumb-link {
+  color: var(--sofa-color-primary);
+  text-decoration: none;
+  transition: var(--sofa-transition);
+}
+
+.sofa-breadcrumb-link:hover {
+  color: var(--sofa-color-primary-hover);
+}
+
+.sofa-breadcrumb-current {
+  color: var(--sofa-text-primary);
+  font-weight: 500;
+}
+
+.sofa-breadcrumb-separator {
+  margin: 0 8px;
+  color: var(--sofa-text-quaternary);
+}
+
+.sofa-breadcrumb-icon {
+  display: inline-flex;
+  vertical-align: middle;
+  margin-right: 2px;
+}

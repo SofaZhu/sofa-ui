@@ -1,0 +1,356 @@
+/* Table 表格 */
+.sofa-table {
+  position: relative;
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-primary);
+}
+
+.sofa-table-scroll-x {
+  overflow-x: auto;
+}
+
+.sofa-table-scroll-x-active {
+  overflow-x: auto;
+}
+
+.sofa-table-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: var(--sofa-font-family);
+}
+
+/* 表头 */
+.sofa-table-thead {
+  background: var(--sofa-fill-color-secondary);
+}
+
+.sofa-table-th {
+  position: relative;
+  padding: 12px 12px;
+  text-align: left;
+  font-weight: 500;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--sofa-border-color);
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.sofa-table-th-sortable {
+  cursor: pointer;
+}
+
+.sofa-table-th-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.sofa-table-sort-icons {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 0;
+  gap: 1px;
+}
+
+.sofa-table-sort-icon {
+  color: var(--sofa-text-quaternary);
+  transition: var(--sofa-transition);
+}
+
+.sofa-table-sort-icon-active {
+  color: var(--sofa-color-primary);
+}
+
+/* 纵向滚动时表头吸附 */
+.sofa-table-scroll .sofa-table-scroll-y .sofa-table-thead .sofa-table-th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: var(--sofa-fill-color-secondary);
+}
+
+/* 固定列 */
+.sofa-table-cell-fixed-left {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--sofa-bg-container);
+  box-shadow: 4px 0 6px -4px rgba(0, 0, 0, 0.12);
+}
+
+.sofa-table-thead .sofa-table-cell-fixed-left,
+.sofa-table-thead .sofa-table-cell-fixed-right {
+  z-index: 4;
+  background: var(--sofa-fill-color-secondary);
+}
+
+.sofa-table-cell-fixed-right {
+  position: sticky;
+  right: 0;
+  z-index: 2;
+  background: var(--sofa-bg-container);
+  box-shadow: -4px 0 6px -4px rgba(0, 0, 0, 0.12);
+}
+
+/* 单元格 */
+.sofa-table-td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--sofa-border-color);
+  box-sizing: border-box;
+}
+
+.sofa-table-cell {
+  min-width: 0;
+  word-break: break-word;
+}
+
+.sofa-table-align-center {
+  text-align: center;
+}
+
+.sofa-table-align-right {
+  text-align: right;
+}
+
+.sofa-table-row {
+  transition: var(--sofa-transition);
+}
+
+.sofa-table-row:hover:not(.sofa-table-row-selected) {
+  background: var(--sofa-fill-color);
+}
+
+.sofa-table-row-selected {
+  background: var(--sofa-color-primary-bg);
+}
+
+/* 展开列 */
+.sofa-table-expand-col,
+.sofa-table-selection-col {
+  text-align: center;
+}
+
+.sofa-table-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--sofa-border-color-strong);
+  border-radius: var(--sofa-radius-xs);
+  background: var(--sofa-bg-container);
+  color: var(--sofa-text-primary);
+  cursor: pointer;
+  transition: var(--sofa-transition);
+  box-sizing: border-box;
+}
+
+.sofa-table-expand-btn:hover {
+  color: var(--sofa-color-primary);
+  border-color: var(--sofa-color-primary);
+}
+
+.sofa-table-expand-btn .sofa-icon {
+  transition: transform 0.2s ease;
+}
+
+.sofa-table-expand-btn-open .sofa-icon {
+  transform: rotate(90deg);
+}
+
+.sofa-table-expanded-row .sofa-table-td {
+  background: var(--sofa-fill-color);
+}
+
+.sofa-table-expanded-content {
+  padding: 8px 16px 8px 40px;
+  color: var(--sofa-text-secondary);
+}
+
+/* 选择列 */
+.sofa-table-select-all,
+.sofa-table-row-checkbox,
+.sofa-table-row-radio {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--sofa-color-primary);
+}
+
+.sofa-table-row-checkbox:disabled,
+.sofa-table-row-radio:disabled {
+  cursor: not-allowed;
+}
+
+/* 筛选浮层 */
+.sofa-table-filter-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sofa-table-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: var(--sofa-radius-xs);
+  background: transparent;
+  color: var(--sofa-text-tertiary);
+  cursor: pointer;
+  padding: 0;
+  transition: var(--sofa-transition);
+}
+
+.sofa-table-filter-btn:hover {
+  color: var(--sofa-color-primary);
+  background: var(--sofa-color-primary-bg);
+}
+
+.sofa-table-filter-btn-active {
+  color: var(--sofa-color-primary);
+}
+
+.sofa-table-filter-popup {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 160px;
+  z-index: var(--sofa-zindex-popover);
+  background: var(--sofa-bg-container);
+  border: 1px solid var(--sofa-border-color);
+  border-radius: var(--sofa-radius-md);
+  box-shadow: var(--sofa-shadow-md);
+  padding: 8px;
+  animation: sofa-scale-in 0.18s both;
+}
+
+.sofa-table-filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.sofa-table-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: var(--sofa-radius-xs);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sofa-table-filter-item:hover {
+  background: var(--sofa-fill-color);
+}
+
+.sofa-table-filter-item input {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--sofa-color-primary);
+  cursor: pointer;
+}
+
+.sofa-table-filter-text {
+  color: var(--sofa-text-primary);
+}
+
+.sofa-table-filter-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--sofa-border-color);
+}
+
+.sofa-table-filter-btn-sm {
+  height: 28px;
+  padding: 0 12px;
+  border: 1px solid var(--sofa-border-color-strong);
+  border-radius: var(--sofa-radius-xs);
+  background: var(--sofa-bg-container);
+  color: var(--sofa-text-primary);
+  font-size: var(--sofa-font-size-xs);
+  cursor: pointer;
+  transition: var(--sofa-transition);
+}
+
+.sofa-table-filter-btn-sm:hover {
+  color: var(--sofa-color-primary);
+  border-color: var(--sofa-color-primary);
+}
+
+.sofa-table-filter-btn-confirm {
+  background: var(--sofa-color-primary);
+  border-color: var(--sofa-color-primary);
+  color: #fff;
+}
+
+.sofa-table-filter-btn-confirm:hover {
+  color: #fff;
+  background: var(--sofa-color-primary-hover);
+}
+
+/* 空数据 */
+.sofa-table-empty-row .sofa-table-td {
+  text-align: center;
+  padding: 32px 12px;
+}
+
+.sofa-table-empty {
+  color: var(--sofa-text-tertiary);
+}
+
+/* 加载态 */
+.sofa-table-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--sofa-color-primary);
+  z-index: 5;
+}
+
+html[data-theme='dark'] .sofa-table-loading {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* 分页 */
+.sofa-table-pagination {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 12px;
+}
+
+/* 尺寸 */
+.sofa-table-small .sofa-table-th,
+.sofa-table-small .sofa-table-td {
+  padding: 6px 8px;
+}
+
+.sofa-table-large .sofa-table-th,
+.sofa-table-large .sofa-table-td {
+  padding: 16px;
+}
+
+/* 边框 */
+.sofa-table-bordered .sofa-table-th,
+.sofa-table-bordered .sofa-table-td {
+  border: 1px solid var(--sofa-border-color);
+  border-bottom: none;
+}
+
+.sofa-table-bordered .sofa-table-th {
+  border-bottom: 1px solid var(--sofa-border-color);
+}

@@ -1,0 +1,105 @@
+/* Message 全局消息 */
+.sofa-message-container {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--sofa-zindex-message);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.sofa-message-container-topLeft {
+  left: 16px;
+  transform: none;
+  align-items: flex-start;
+}
+
+.sofa-message-container-topRight {
+  left: auto;
+  right: 16px;
+  transform: none;
+  align-items: flex-end;
+}
+
+.sofa-message-container-bottom {
+  top: auto;
+  bottom: 16px;
+}
+
+/* Message 消息列表宿主：竖排，最新消息在上 */
+.sofa-message-host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.sofa-message-container-topLeft .sofa-message-host {
+  align-items: flex-start;
+}
+
+.sofa-message-container-topRight .sofa-message-host {
+  align-items: flex-end;
+}
+
+.sofa-message {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: var(--sofa-radius-md);
+  background: var(--sofa-bg-container);
+  color: var(--sofa-text-primary);
+  box-shadow: var(--sofa-shadow-md);
+  font-size: var(--sofa-font-size-sm);
+  max-width: 70vw;
+  pointer-events: auto;
+  animation: sofa-slide-down 0.25s ease;
+}
+
+.sofa-message-exit {
+  animation: sofa-slide-up 0.2s ease forwards;
+}
+
+.sofa-message-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.sofa-message-success .sofa-message-icon {
+  color: var(--sofa-color-success);
+}
+
+.sofa-message-error .sofa-message-icon {
+  color: var(--sofa-color-error);
+}
+
+.sofa-message-warning .sofa-message-icon {
+  color: var(--sofa-color-warning);
+}
+
+.sofa-message-info .sofa-message-icon {
+  color: var(--sofa-color-info);
+}
+
+.sofa-message-loading .sofa-message-icon {
+  color: var(--sofa-color-primary);
+}
+
+.sofa-message-close {
+  border: none;
+  background: transparent;
+  color: var(--sofa-text-tertiary);
+  cursor: pointer;
+  display: inline-flex;
+  padding: 2px;
+}
+
+.sofa-message-close:hover {
+  color: var(--sofa-text-primary);
+}

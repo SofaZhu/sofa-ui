@@ -1,0 +1,89 @@
+/* Descriptions 描述列表 */
+.sofa-descriptions {
+  box-sizing: border-box;
+  color: var(--sofa-text-primary);
+  font-size: var(--sofa-font-size-sm);
+}
+
+.sofa-descriptions-title {
+  font-size: var(--sofa-font-size-lg);
+  font-weight: 600;
+  color: var(--sofa-text-primary);
+  margin-bottom: 12px;
+}
+
+.sofa-descriptions-body {
+  display: grid;
+}
+
+/* 边框模式：用负 margin 合并相邻边框 */
+.sofa-descriptions-bordered .sofa-descriptions-item {
+  border: 1px solid var(--sofa-border-color);
+  margin-top: -1px;
+  margin-left: -1px;
+  background: var(--sofa-bg-container);
+}
+
+.sofa-descriptions-item {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.sofa-descriptions-item-label {
+  color: var(--sofa-text-secondary);
+  font-size: var(--sofa-font-size-sm);
+}
+
+.sofa-descriptions-item-content {
+  color: var(--sofa-text-primary);
+  word-break: break-word;
+}
+
+/* 水平布局：label 与内容同行排列 */
+.sofa-descriptions:not(.sofa-descriptions-vertical) .sofa-descriptions-item {
+  display: flex;
+  align-items: center;
+}
+
+.sofa-descriptions:not(.sofa-descriptions-vertical) .sofa-descriptions-item-label {
+  flex-shrink: 0;
+  min-width: 104px;
+  padding-right: 12px;
+}
+
+/* 垂直布局：label 上置 */
+.sofa-descriptions-vertical .sofa-descriptions-item-label {
+  margin-bottom: 4px;
+}
+
+/* 边框模式的单元格内边距与分隔线 */
+.sofa-descriptions-bordered .sofa-descriptions-item-label,
+.sofa-descriptions-bordered .sofa-descriptions-item-content {
+  padding: 10px 14px;
+  box-sizing: border-box;
+}
+
+.sofa-descriptions-bordered:not(.sofa-descriptions-vertical) .sofa-descriptions-item-label {
+  border-right: 1px solid var(--sofa-border-color);
+  background: var(--sofa-fill-color);
+  margin-right: 0;
+}
+
+.sofa-descriptions-bordered.sofa-descriptions-vertical .sofa-descriptions-item-label {
+  border-bottom: 1px solid var(--sofa-border-color);
+  background: var(--sofa-fill-color);
+  margin-bottom: 0;
+}
+
+/* 尺寸调节 */
+.sofa-descriptions-size-middle .sofa-descriptions-item-label,
+.sofa-descriptions-size-middle .sofa-descriptions-item-content {
+  padding: 8px 12px;
+  font-size: var(--sofa-font-size-sm);
+}
+
+.sofa-descriptions-size-small .sofa-descriptions-item-label,
+.sofa-descriptions-size-small .sofa-descriptions-item-content {
+  padding: 5px 8px;
+  font-size: var(--sofa-font-size-xs);
+}

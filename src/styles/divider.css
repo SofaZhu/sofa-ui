@@ -1,0 +1,48 @@
+/* Divider 分割线 */
+.sofa-divider {
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+  border-top: 1px solid var(--sofa-border-color);
+  box-sizing: border-box;
+  background: none;
+}
+
+.sofa-divider-dashed {
+  border-top-style: dashed;
+}
+
+.sofa-divider-vertical {
+  display: inline-block;
+  height: 0.9em;
+  margin: 0 8px;
+  border-top: none;
+  background: var(--sofa-border-color);
+  vertical-align: middle;
+}
+
+.sofa-divider-title {
+  padding: 0 16px;
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-primary);
+  background: var(--sofa-bg-container);
+  white-space: nowrap;
+}
+
+.sofa-divider-plain .sofa-divider-title {
+  font-weight: 500;
+}
+
+/* 带文字时：主线被文字背景遮盖，两侧自然露出线段 */
+.sofa-divider-left {
+  justify-content: flex-start;
+}
+
+.sofa-divider-right {
+  justify-content: flex-end;
+}
+
+/* 无文字时主线贯穿 */
+.sofa-divider-center .sofa-divider-title {
+  margin: 0 auto;
+}

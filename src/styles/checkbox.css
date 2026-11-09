@@ -1,0 +1,103 @@
+/* Checkbox 复选框 */
+.sofa-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-primary);
+  user-select: none;
+}
+
+.sofa-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.sofa-checkbox-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--sofa-border-color-strong);
+  border-radius: 4px;
+  background: var(--sofa-bg-container);
+  color: #fff;
+  transition: var(--sofa-transition);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.sofa-checkbox-icon {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: var(--sofa-transition);
+}
+
+.sofa-checkbox-dash {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  height: 2px;
+  background: var(--sofa-color-primary);
+  border-radius: 1px;
+}
+
+.sofa-checkbox-checked .sofa-checkbox-box {
+  background: var(--sofa-color-primary);
+  border-color: var(--sofa-color-primary);
+}
+
+.sofa-checkbox-checked .sofa-checkbox-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.sofa-checkbox:hover:not(.sofa-checkbox-disabled) .sofa-checkbox-box {
+  border-color: var(--sofa-color-primary);
+}
+
+.sofa-checkbox-disabled {
+  cursor: not-allowed;
+  color: var(--sofa-disabled-color);
+}
+
+.sofa-checkbox-disabled .sofa-checkbox-box {
+  background: var(--sofa-fill-color);
+  border-color: var(--sofa-border-color);
+}
+
+.sofa-checkbox-group {
+  display: inline-flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sofa-checkbox-group-vertical {
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 尺寸 */
+.sofa-checkbox-sm .sofa-checkbox-box {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+.sofa-checkbox-sm {
+  font-size: var(--sofa-font-size-xs);
+}
+
+.sofa-checkbox-lg .sofa-checkbox-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+}
+
+.sofa-checkbox-lg {
+  font-size: var(--sofa-font-size-md);
+}

@@ -1,0 +1,80 @@
+/* Layout 布局容器 */
+.sofa-layout {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  min-height: 0;
+  background: var(--sofa-bg-page);
+  font-family: var(--sofa-font-family);
+}
+
+.sofa-layout-has-sider {
+  flex-direction: row;
+}
+
+.sofa-layout-header {
+  flex: 0 0 64px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  background: var(--sofa-bg-container);
+  color: var(--sofa-text-primary);
+  box-sizing: border-box;
+}
+
+.sofa-layout-footer {
+  flex: 0 0 auto;
+  padding: 16px 24px;
+  color: var(--sofa-text-secondary);
+  font-size: var(--sofa-font-size-sm);
+  background: var(--sofa-bg-container);
+}
+
+.sofa-layout-content {
+  flex: auto;
+  min-height: 0;
+  color: var(--sofa-text-primary);
+}
+
+.sofa-layout-sider {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--sofa-bg-container);
+  border-right: 1px solid var(--sofa-border-color);
+  box-sizing: border-box;
+  transition: all 0.25s var(--sofa-motion-ease);
+  overflow: hidden;
+}
+
+.sofa-layout-sider-dark {
+  background: #001529;
+  border-right: none;
+}
+
+.sofa-layout-sider-dark .sofa-layout-sider-trigger {
+  background: #002140;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.sofa-layout-sider-children {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.sofa-layout-sider-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border: none;
+  background: var(--sofa-fill-color-secondary);
+  color: var(--sofa-text-secondary);
+  cursor: pointer;
+  transition: var(--sofa-transition);
+}
+
+.sofa-layout-sider-trigger:hover {
+  color: var(--sofa-color-primary);
+}

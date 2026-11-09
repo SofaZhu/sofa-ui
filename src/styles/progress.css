@@ -1,0 +1,71 @@
+/* Progress 进度条 */
+.sofa-progress-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.sofa-progress-bar {
+  flex: 1;
+  background: var(--sofa-fill-color);
+  border-radius: var(--sofa-radius-full);
+  overflow: hidden;
+}
+
+.sofa-progress-bar-inner {
+  height: 100%;
+  border-radius: var(--sofa-radius-full);
+}
+
+.sofa-progress-striped .sofa-progress-bar-inner {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 24px 24px;
+}
+
+.sofa-progress-animated .sofa-progress-bar-inner {
+  animation: sofa-progress-stripes 1s linear infinite;
+}
+
+@keyframes sofa-progress-stripes {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 24px 0;
+  }
+}
+
+.sofa-progress-text {
+  font-size: var(--sofa-font-size-xs);
+  color: var(--sofa-text-secondary);
+  min-width: 40px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* 圆环 / 仪表盘 */
+.sofa-progress-circle {
+  position: relative;
+  display: inline-flex;
+}
+
+.sofa-progress-circle-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--sofa-font-size-md);
+  font-weight: 600;
+  color: var(--sofa-text-primary);
+}

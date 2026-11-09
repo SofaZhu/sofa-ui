@@ -1,0 +1,16 @@
+/* Container 宽屏容器 */
+.sofa-container {
+  box-sizing: border-box;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sofa-container-fluid {
+  max-width: none;
+}
+
+.sofa-container-centered {
+  margin-left: auto;
+  margin-right: auto;
+}

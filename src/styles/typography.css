@@ -1,0 +1,170 @@
+/* Typography 排版 */
+.sofa-typography {
+  color: var(--sofa-text-primary);
+  box-sizing: border-box;
+}
+
+.sofa-typography-title {
+  margin: 0 0 8px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.sofa-typography-title-1 {
+  font-size: 32px;
+}
+
+.sofa-typography-title-2 {
+  font-size: 26px;
+}
+
+.sofa-typography-title-3 {
+  font-size: 20px;
+}
+
+.sofa-typography-title-4 {
+  font-size: 16px;
+}
+
+.sofa-typography-title-5 {
+  font-size: 14px;
+}
+
+.sofa-typography-paragraph {
+  margin: 0 0 12px;
+  font-size: var(--sofa-font-size-sm);
+  line-height: 1.7;
+  font-family: var(--sofa-font-family);
+}
+
+.sofa-text-primary {
+  color: var(--sofa-text-primary);
+}
+
+.sofa-text-secondary {
+  color: var(--sofa-text-secondary);
+}
+
+.sofa-text-tertiary {
+  color: var(--sofa-text-tertiary);
+}
+
+.sofa-text-disabled {
+  color: var(--sofa-disabled-color);
+  cursor: not-allowed;
+}
+
+.sofa-text-success {
+  color: var(--sofa-color-success);
+}
+
+.sofa-text-warning {
+  color: var(--sofa-color-warning);
+}
+
+.sofa-text-error {
+  color: var(--sofa-color-error);
+}
+
+.sofa-typography-strong {
+  font-weight: 600;
+}
+
+.sofa-typography-italic {
+  font-style: italic;
+}
+
+.sofa-typography-underline {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sofa-typography-ellipsis {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+.sofa-typography-copyable-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+.sofa-typography-copyable-ellipsis > .sofa-typography-ellipsis {
+  min-width: 0;
+}
+
+.sofa-typography-copyable-ellipsis > .sofa-typography-copy {
+  flex-shrink: 0;
+}
+
+.sofa-typography-ellipsis-multiple {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sofa-typography-del,
+.sofa-typography-mark {
+  margin: 0 2px;
+}
+
+.sofa-typography-mark {
+  background: rgba(250, 173, 20, 0.2);
+  padding: 0 4px;
+  border-radius: var(--sofa-radius-xs);
+}
+
+.sofa-typography-code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  background: var(--sofa-fill-color);
+  border: 1px solid var(--sofa-border-color);
+  border-radius: var(--sofa-radius-xs);
+  padding: 1px 5px;
+  font-size: 0.92em;
+}
+
+.sofa-typography-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+  border: none;
+  background: transparent;
+  color: var(--sofa-text-tertiary);
+  border-radius: var(--sofa-radius-xs);
+  cursor: pointer;
+  vertical-align: middle;
+  transition: var(--sofa-transition);
+}
+
+.sofa-typography-copy:hover {
+  background: var(--sofa-fill-color);
+  color: var(--sofa-color-primary);
+}
+
+.sofa-typography-copied {
+  color: var(--sofa-color-success);
+}
+
+.sofa-typography-expand {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--sofa-color-primary);
+  font-size: var(--sofa-font-size-sm);
+  cursor: pointer;
+}
+
+.sofa-typography-expand:hover {
+  color: var(--sofa-color-primary-hover);
+}

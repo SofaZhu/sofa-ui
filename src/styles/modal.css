@@ -1,0 +1,109 @@
+/* Modal 对话框 */
+.sofa-modal-root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--sofa-zindex-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sofa-modal-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  animation: sofa-fade-in 0.2s ease;
+}
+
+.sofa-modal-wrap {
+  position: relative;
+  z-index: 1;
+  padding: 16px;
+}
+
+.sofa-modal {
+  position: relative;
+  max-width: calc(100vw - 64px);
+  background: var(--sofa-bg-container);
+  border-radius: var(--sofa-radius-lg);
+  box-shadow: var(--sofa-shadow-lg);
+  animation: sofa-scale-in 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sofa-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: var(--sofa-radius-sm);
+  background: transparent;
+  color: var(--sofa-text-tertiary);
+  cursor: pointer;
+  transition: var(--sofa-transition);
+}
+
+.sofa-modal-close:hover {
+  background: var(--sofa-fill-color);
+  color: var(--sofa-text-primary);
+}
+
+.sofa-modal-header {
+  padding: 16px 24px;
+  font-size: var(--sofa-font-size-md);
+  font-weight: 600;
+  color: var(--sofa-text-primary);
+  border-bottom: 1px solid var(--sofa-border-color);
+}
+
+.sofa-modal-body {
+  padding: 20px 24px;
+  font-size: var(--sofa-font-size-sm);
+  line-height: 1.7;
+  color: var(--sofa-text-secondary);
+}
+
+.sofa-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 24px 16px;
+  border-top: 1px solid var(--sofa-border-color);
+}
+
+/* 命令式确认框内容 */
+.sofa-modal-confirm {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.sofa-modal-confirm-icon {
+  color: var(--sofa-color-warning);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sofa-modal-confirm-error .sofa-modal-confirm-icon {
+  color: var(--sofa-color-error);
+}
+
+.sofa-modal-confirm-info .sofa-modal-confirm-icon {
+  color: var(--sofa-color-info);
+}
+
+.sofa-modal-confirm-title {
+  font-size: var(--sofa-font-size-md);
+  font-weight: 600;
+  color: var(--sofa-text-primary);
+  margin-bottom: 8px;
+}
+
+.sofa-modal-confirm-content {
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-secondary);
+}

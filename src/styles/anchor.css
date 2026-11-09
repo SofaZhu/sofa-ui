@@ -1,0 +1,60 @@
+/* Anchor 锚点 */
+.sofa-anchor {
+  position: relative;
+  padding-left: 12px;
+}
+
+.sofa-anchor-sticky {
+  position: sticky;
+  top: 80px;
+}
+
+.sofa-anchor::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--sofa-border);
+  border-radius: 1px;
+}
+
+.sofa-anchor-link {
+  padding: 4px 0;
+}
+
+.sofa-anchor-link-title {
+  display: block;
+  padding: 4px 8px;
+  color: var(--sofa-text-primary);
+  font-size: var(--sofa-font-size-sm);
+  line-height: 1.4;
+  border-radius: var(--sofa-radius-sm);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sofa-anchor-link-title:hover {
+  color: var(--sofa-primary);
+}
+
+.sofa-anchor-link-active .sofa-anchor-link-title {
+  color: var(--sofa-primary);
+  font-weight: 500;
+}
+
+.sofa-anchor-link-active::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--sofa-primary);
+  border-radius: 1px;
+}
+
+.sofa-anchor-link-children {
+  padding-left: 12px;
+}

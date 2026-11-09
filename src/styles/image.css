@@ -1,0 +1,134 @@
+/* Image 图片 */
+.sofa-image {
+  display: inline-block;
+  position: relative;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.sofa-image-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+.sofa-image-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sofa-fill-color-secondary);
+  color: var(--sofa-text-tertiary);
+  font-size: var(--sofa-font-size-sm);
+}
+
+.sofa-image-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 64px;
+  color: var(--sofa-text-tertiary);
+  font-size: var(--sofa-font-size-sm);
+}
+
+.sofa-image-fallback-broken {
+  background: var(--sofa-fill-color-secondary);
+}
+
+/* 全屏预览层 */
+.sofa-image-preview {
+  position: fixed;
+  inset: 0;
+  z-index: var(--sofa-zindex-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.sofa-image-preview-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.sofa-image-preview-img {
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+  user-select: none;
+}
+
+/* 底部工具栏 */
+.sofa-image-preview-toolbar {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border-radius: var(--sofa-radius-md);
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(4px);
+}
+
+.sofa-image-preview-tool {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--sofa-radius-xs);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: var(--sofa-transition);
+}
+
+.sofa-image-preview-tool:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.sofa-image-preview-tool:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.sofa-image-preview-scale {
+  min-width: 48px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--sofa-font-size-xs);
+  font-family: var(--sofa-font-family);
+}
+
+/* 右上角关闭按钮 */
+.sofa-image-preview-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: var(--sofa-transition);
+}
+
+.sofa-image-preview-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}

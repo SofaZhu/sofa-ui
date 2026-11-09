@@ -1,0 +1,134 @@
+/* Carousel 走马灯 */
+.sofa-carousel {
+  position: relative;
+  outline: none;
+  font-size: var(--sofa-font-size-sm);
+  overflow: hidden;
+}
+
+.sofa-carousel-viewport {
+  overflow: hidden;
+}
+
+.sofa-carousel-track {
+  position: relative;
+  display: flex;
+}
+
+.sofa-carousel-empty {
+  flex: 0 0 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  color: var(--sofa-text-tertiary);
+  background: var(--sofa-fill-color-secondary);
+}
+
+/* 滚动模式：每张占满容器宽度 */
+.sofa-carousel-scroll .sofa-carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+/* 淡入淡出模式：幻灯片叠放，透明度过渡 */
+.sofa-carousel-fade .sofa-carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.sofa-carousel-fade {
+  min-height: 120px;
+}
+
+.sofa-carousel-fade .sofa-carousel-slide-active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+/* 左右箭头 */
+.sofa-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--sofa-text-primary);
+  cursor: pointer;
+  z-index: 2;
+  transition: var(--sofa-transition);
+  font-family: var(--sofa-font-family);
+  box-shadow: var(--sofa-shadow-sm);
+}
+
+html[data-theme='dark'] .sofa-carousel-arrow {
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--sofa-text-primary);
+}
+
+.sofa-carousel-arrow:hover:not(:disabled) {
+  color: var(--sofa-color-primary);
+}
+
+.sofa-carousel-arrow:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.sofa-carousel-arrow-prev {
+  left: 8px;
+}
+
+.sofa-carousel-arrow-next {
+  right: 8px;
+}
+
+/* 指示点 */
+.sofa-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  list-style: none;
+  padding: 8px 0 0;
+  margin: 0;
+  z-index: 2;
+}
+
+.sofa-carousel-dots-top {
+  padding: 0 0 8px;
+}
+
+.sofa-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border: none;
+  border-radius: 50%;
+  background: var(--sofa-border-color-strong);
+  cursor: pointer;
+  padding: 0;
+  transition: var(--sofa-transition);
+  box-sizing: border-box;
+}
+
+.sofa-carousel-dot:hover {
+  background: var(--sofa-color-primary-5);
+}
+
+.sofa-carousel-dot-active {
+  background: var(--sofa-color-primary);
+  width: 20px;
+  border-radius: 4px;
+}

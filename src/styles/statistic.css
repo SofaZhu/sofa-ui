@@ -1,0 +1,44 @@
+/* Statistic 统计数值 */
+.sofa-statistic {
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.sofa-statistic-title {
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-secondary);
+  margin-bottom: 6px;
+}
+
+.sofa-statistic-content {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--sofa-text-primary);
+}
+
+.sofa-statistic-prefix,
+.sofa-statistic-suffix {
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-secondary);
+}
+
+.sofa-statistic-value {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 语义色 */
+.sofa-statistic-success .sofa-statistic-value {
+  color: var(--sofa-color-success);
+}
+
+.sofa-statistic-warning .sofa-statistic-value {
+  color: var(--sofa-color-warning);
+}
+
+.sofa-statistic-error .sofa-statistic-value {
+  color: var(--sofa-color-error);
+}

@@ -1,0 +1,139 @@
+/* Sofa UI 基础重置：仅作用于组件自身，避免污染宿主页面 */
+.sofa-icon {
+  display: inline-block;
+  vertical-align: -0.15em;
+  flex-shrink: 0;
+}
+
+.sofa-icon-spin {
+  animation: sofa-spin 1s linear infinite;
+}
+
+@keyframes sofa-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sofa-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sofa-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes sofa-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sofa-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sofa-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes sofa-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 弹层公共基座 */
+.sofa-pop-wrapper {
+  display: inline-flex;
+  position: relative;
+}
+
+.sofa-pop-anchor {
+  display: inline-flex;
+}
+
+/* 弹层定位容器：样式由 usePop 通过内联样式写入
+   定位坐标来自 getBoundingClientRect（视口坐标系），必须用 fixed 而非 absolute */
+.sofa-popup {
+  position: fixed;
+  z-index: var(--sofa-zindex-popover);
+  animation-duration: 0.18s;
+  animation-fill-mode: both;
+}
+
+.sofa-popup-arrow {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: inherit;
+  transform: rotate(45deg);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.sofa-popup[data-side='top'] > .sofa-popup-arrow { bottom: -6px; }
+.sofa-popup[data-side='bottom'] > .sofa-popup-arrow { top: -6px; }
+.sofa-popup[data-side='left'] > .sofa-popup-arrow { right: -6px; }
+.sofa-popup[data-side='right'] > .sofa-popup-arrow { left: -6px; }
+
+/* 按钮波纹 */
+.sofa-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.sofa-btn-wave {
+  position: absolute;
+  border-radius: 50%;
+  background: color-mix(in srgb, currentColor 10%, transparent);
+  pointer-events: none;
+  animation: sofa-wave 0.6s ease-out forwards;
+}
+
+@keyframes sofa-wave {
+  from {
+    opacity: 0.6;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1);
+  }
+}

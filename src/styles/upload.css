@@ -1,0 +1,214 @@
+/* Upload 文件上传 */
+.sofa-upload {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 100%;
+}
+
+.sofa-upload-input {
+  display: none;
+}
+
+.sofa-upload-trigger,
+.sofa-upload-trigger-custom {
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--sofa-text-primary);
+  font-family: inherit;
+}
+
+.sofa-upload-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border: 1px dashed var(--sofa-border-color-strong);
+  border-radius: var(--sofa-radius-sm);
+  font-size: var(--sofa-font-size-sm);
+  transition: var(--sofa-transition);
+}
+
+.sofa-upload-trigger:hover:not(:disabled) {
+  border-color: var(--sofa-color-primary);
+  color: var(--sofa-color-primary);
+}
+
+.sofa-upload-drag {
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  padding: 32px 16px;
+  border: 1px dashed var(--sofa-border-color-strong);
+  border-radius: var(--sofa-radius-md);
+  background: var(--sofa-fill-color-secondary);
+}
+
+.sofa-upload-drag-icon {
+  color: var(--sofa-text-tertiary);
+}
+
+.sofa-upload-drag-text {
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-secondary);
+}
+
+.sofa-upload-dragging {
+  border-color: var(--sofa-color-primary);
+  background: var(--sofa-color-primary-bg);
+}
+
+.sofa-upload-dragging .sofa-upload-drag-icon {
+  color: var(--sofa-color-primary);
+}
+
+.sofa-upload-trigger:disabled,
+.sofa-upload-trigger-custom:disabled {
+  cursor: not-allowed;
+  color: var(--sofa-disabled-color);
+  border-color: var(--sofa-border-color);
+  background: var(--sofa-fill-color);
+}
+
+.sofa-upload-disabled .sofa-upload-drag-text {
+  color: var(--sofa-disabled-color);
+}
+
+.sofa-upload-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 220px;
+}
+
+.sofa-upload-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--sofa-border-color);
+  border-radius: var(--sofa-radius-sm);
+  background: var(--sofa-bg-container);
+  font-size: var(--sofa-font-size-sm);
+}
+
+.sofa-upload-item-icon {
+  display: inline-flex;
+  color: var(--sofa-text-tertiary);
+  margin-top: 1px;
+}
+
+.sofa-upload-thumb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--sofa-border-color);
+  border-radius: var(--sofa-radius-sm);
+  overflow: hidden;
+  color: var(--sofa-text-tertiary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sofa-upload-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sofa-upload-item-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.sofa-upload-item-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sofa-upload-item-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--sofa-text-primary);
+}
+
+.sofa-upload-item-error-text {
+  color: var(--sofa-color-error);
+}
+
+.sofa-upload-item-status {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.sofa-upload-item-uploading {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--sofa-font-size-xs);
+  color: var(--sofa-text-tertiary);
+}
+
+.sofa-upload-item-done {
+  color: var(--sofa-color-success);
+}
+
+.sofa-upload-item-fail {
+  color: var(--sofa-color-error);
+}
+
+.sofa-upload-item-retry,
+.sofa-upload-item-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: var(--sofa-radius-xs);
+  background: transparent;
+  color: var(--sofa-text-tertiary);
+  cursor: pointer;
+  transition: var(--sofa-transition);
+  flex-shrink: 0;
+}
+
+.sofa-upload-item-retry:hover,
+.sofa-upload-item-remove:hover {
+  background: var(--sofa-fill-color);
+  color: var(--sofa-text-primary);
+}
+
+.sofa-upload-progress {
+  height: 4px;
+  margin-top: 6px;
+  border-radius: var(--sofa-radius-full);
+  background: var(--sofa-fill-color);
+  overflow: hidden;
+}
+
+.sofa-upload-progress-bar {
+  height: 100%;
+  border-radius: var(--sofa-radius-full);
+  background: var(--sofa-color-primary);
+  transition: width 0.2s ease;
+}
+
+.sofa-upload-item-fail-text {
+  margin-top: 2px;
+  font-size: var(--sofa-font-size-xs);
+  color: var(--sofa-color-error);
+}

@@ -1,0 +1,71 @@
+/* Avatar 头像 */
+.sofa-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--sofa-color-primary-6);
+  color: #fff;
+  font-family: var(--sofa-font-family);
+  font-weight: 500;
+  line-height: 1;
+  user-select: none;
+  vertical-align: middle;
+  transition: var(--sofa-transition);
+}
+
+.sofa-avatar-circle {
+  border-radius: 50%;
+}
+
+.sofa-avatar-square {
+  border-radius: var(--sofa-radius-sm);
+}
+
+.sofa-avatar .sofa-image-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sofa-avatar-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sofa-avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.sofa-avatar-text {
+  line-height: 1;
+}
+
+/* 头像组：横向叠放 */
+.sofa-avatar-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.sofa-avatar-group-item {
+  margin-left: -8px;
+  border: 2px solid var(--sofa-bg-container);
+}
+
+.sofa-avatar-group-item:first-child {
+  margin-left: 0;
+}
+
+.sofa-avatar-group-rest {
+  background: var(--sofa-fill-color-secondary);
+  color: var(--sofa-text-secondary);
+  cursor: default;
+  font-size: 12px;
+}

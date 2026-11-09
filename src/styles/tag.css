@@ -1,0 +1,96 @@
+/* Tag 标签 */
+.sofa-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 8px;
+  font-size: var(--sofa-font-size-xs);
+  line-height: 20px;
+  border-radius: var(--sofa-radius-xs);
+  border: 1px solid transparent;
+  cursor: default;
+  box-sizing: border-box;
+  vertical-align: middle;
+  transition: var(--sofa-transition);
+}
+
+.sofa-tag-sm {
+  padding: 0 6px;
+  line-height: 16px;
+  font-size: 11px;
+}
+
+.sofa-tag-lg {
+  padding: 3px 12px;
+  line-height: 22px;
+  font-size: var(--sofa-font-size-sm);
+}
+
+.sofa-tag-primary {
+  color: var(--sofa-color-primary);
+  background: var(--sofa-color-primary-1);
+  border-color: var(--sofa-color-primary-3);
+}
+
+.sofa-tag-success {
+  color: var(--sofa-color-success);
+  background: var(--sofa-color-success-bg);
+  border-color: var(--sofa-color-success-border);
+}
+
+.sofa-tag-warning {
+  color: var(--sofa-color-warning);
+  background: var(--sofa-color-warning-bg);
+  border-color: var(--sofa-color-warning-border);
+}
+
+.sofa-tag-error {
+  color: var(--sofa-color-error);
+  background: var(--sofa-color-error-bg);
+  border-color: var(--sofa-color-error-border);
+}
+
+.sofa-tag-info {
+  color: var(--sofa-color-info);
+  background: var(--sofa-color-info-bg);
+  border-color: var(--sofa-color-info-border);
+}
+
+.sofa-tag-custom {
+  background: transparent;
+}
+
+.sofa-tag-bordered {
+  border-style: solid;
+}
+
+.sofa-tag-close {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.7;
+  border-radius: 50%;
+  padding: 1px;
+  margin-left: 2px;
+}
+
+.sofa-tag-close:hover {
+  opacity: 1;
+}
+
+/* 可勾选标签 */
+.sofa-tag-checkable {
+  cursor: pointer;
+  border-style: solid;
+}
+
+.sofa-tag-checked {
+  background: var(--sofa-color-primary);
+  border-color: var(--sofa-color-primary);
+  color: #fff;
+}
+
+.sofa-tag-checkable:not(.sofa-tag-checked):hover {
+  border-color: var(--sofa-color-primary);
+  color: var(--sofa-color-primary);
+}

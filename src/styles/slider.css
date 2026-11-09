@@ -1,0 +1,101 @@
+/* Slider 滑块 */
+.sofa-slider {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+.sofa-slider-track-wrap {
+  position: relative;
+  height: 18px;
+  cursor: pointer;
+}
+
+.sofa-slider-track {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--sofa-fill-color);
+  border-radius: 1px;
+}
+
+.sofa-slider-active {
+  position: absolute;
+  top: 8px;
+  height: 2px;
+  background: var(--sofa-color-primary);
+  border-radius: 1px;
+  transition: background 0.2s ease;
+}
+
+.sofa-slider-handle {
+  position: absolute;
+  top: 1px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--sofa-bg-container);
+  border: 2px solid var(--sofa-color-primary);
+  box-sizing: border-box;
+  cursor: grab;
+  transition: box-shadow 0.2s ease;
+  outline: none;
+}
+
+.sofa-slider-handle:hover,
+.sofa-slider-handle-active {
+  box-shadow: 0 0 0 6px var(--sofa-color-primary-1);
+}
+
+.sofa-slider-handle:active {
+  cursor: grabbing;
+}
+
+.sofa-slider-tooltip {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--sofa-text-primary);
+  color: var(--sofa-bg-container);
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: var(--sofa-radius-xs);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.sofa-slider-disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.sofa-slider-mark-dot {
+  position: absolute;
+  top: 7px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--sofa-border-color-strong);
+  transform: translateX(-2px);
+}
+
+.sofa-slider-marks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+}
+
+.sofa-slider-mark-label {
+  position: absolute;
+  top: 14px;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: var(--sofa-text-tertiary);
+  white-space: nowrap;
+}

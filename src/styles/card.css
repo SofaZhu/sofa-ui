@@ -1,0 +1,61 @@
+/* Card 卡片 */
+.sofa-card {
+  background: var(--sofa-bg-container);
+  border-radius: var(--sofa-radius-md);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  box-sizing: border-box;
+}
+
+.sofa-card-bordered {
+  border: 1px solid var(--sofa-border-color);
+}
+
+.sofa-card-hoverable:hover {
+  box-shadow: var(--sofa-shadow-md);
+  transform: translateY(-2px);
+}
+
+.sofa-card-cover {
+  width: 100%;
+  overflow: hidden;
+}
+
+.sofa-card-cover img {
+  width: 100%;
+  display: block;
+}
+
+.sofa-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--sofa-border-color);
+}
+
+.sofa-card-title {
+  font-size: var(--sofa-font-size-md);
+  font-weight: 600;
+  color: var(--sofa-text-primary);
+}
+
+.sofa-card-extra {
+  color: var(--sofa-text-secondary);
+  font-size: var(--sofa-font-size-sm);
+}
+
+.sofa-card-body {
+  padding: 20px;
+  color: var(--sofa-text-primary);
+  font-size: var(--sofa-font-size-sm);
+  line-height: 1.6;
+}
+
+.sofa-card-footer {
+  padding: 12px 20px;
+  border-top: 1px solid var(--sofa-border-color);
+  color: var(--sofa-text-secondary);
+  font-size: var(--sofa-font-size-sm);
+}

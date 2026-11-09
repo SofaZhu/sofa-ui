@@ -1,0 +1,229 @@
+/* Calendar 日历 */
+.sofa-calendar {
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-primary);
+  border: 1px solid var(--sofa-border-color);
+  border-radius: var(--sofa-radius-md);
+  background: var(--sofa-bg-container);
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+/* 头部导航 */
+.sofa-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.sofa-calendar-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--sofa-border-color-strong);
+  border-radius: var(--sofa-radius-xs);
+  background: var(--sofa-bg-container);
+  color: var(--sofa-text-primary);
+  cursor: pointer;
+  transition: var(--sofa-transition);
+  font-family: var(--sofa-font-family);
+}
+
+.sofa-calendar-nav-btn:hover {
+  color: var(--sofa-color-primary);
+  border-color: var(--sofa-color-primary);
+}
+
+.sofa-calendar-label {
+  border: none;
+  background: transparent;
+  color: var(--sofa-text-primary);
+  font-size: var(--sofa-font-size-md);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--sofa-radius-xs);
+  transition: var(--sofa-transition);
+  font-family: var(--sofa-font-family);
+}
+
+.sofa-calendar-label:hover {
+  color: var(--sofa-color-primary);
+  background: var(--sofa-color-primary-bg);
+}
+
+/* 周头 */
+.sofa-calendar-week-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid var(--sofa-border-color);
+}
+
+.sofa-calendar-week-cell {
+  text-align: center;
+  padding: 6px 0;
+  color: var(--sofa-text-secondary);
+  font-weight: 500;
+}
+
+/* 日期网格 */
+.sofa-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.sofa-calendar-cell {
+  min-height: 72px;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.sofa-calendar-cell-out {
+  opacity: 0.45;
+  pointer-events: auto;
+}
+
+.sofa-calendar-date-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+  min-height: 68px;
+  border: none;
+  background: transparent;
+  color: var(--sofa-text-primary);
+  cursor: pointer;
+  border-radius: var(--sofa-radius-sm);
+  padding: 4px 6px;
+  box-sizing: border-box;
+  font-family: var(--sofa-font-family);
+  text-align: left;
+  transition: var(--sofa-transition);
+}
+
+.sofa-calendar-date-btn:hover {
+  background: var(--sofa-fill-color);
+}
+
+.sofa-calendar-date-btn:disabled {
+  cursor: not-allowed;
+  color: var(--sofa-text-quaternary);
+}
+
+.sofa-calendar-date-value {
+  font-size: var(--sofa-font-size-sm);
+}
+
+.sofa-calendar-date-content {
+  font-size: var(--sofa-font-size-xs);
+  color: var(--sofa-text-secondary);
+  width: 100%;
+}
+
+.sofa-calendar-cell-today .sofa-calendar-date-value {
+  color: var(--sofa-color-primary);
+  font-weight: 700;
+}
+
+.sofa-calendar-cell-selected .sofa-calendar-date-btn {
+  background: var(--sofa-color-primary);
+  color: #fff;
+}
+
+.sofa-calendar-cell-selected .sofa-calendar-date-value,
+.sofa-calendar-cell-selected .sofa-calendar-date-content {
+  color: #fff;
+}
+
+/* 年份面板 */
+.sofa-calendar-year-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.sofa-calendar-month-cell {
+  min-height: 80px;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.sofa-calendar-month-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+  min-height: 76px;
+  border: none;
+  background: transparent;
+  color: var(--sofa-text-primary);
+  cursor: pointer;
+  border-radius: var(--sofa-radius-sm);
+  padding: 6px 4px;
+  box-sizing: border-box;
+  font-family: var(--sofa-font-family);
+  transition: var(--sofa-transition);
+}
+
+.sofa-calendar-month-btn:hover {
+  background: var(--sofa-fill-color);
+}
+
+.sofa-calendar-month-label {
+  font-weight: 500;
+}
+
+.sofa-calendar-month-content {
+  font-size: var(--sofa-font-size-xs);
+  color: var(--sofa-text-secondary);
+  text-align: center;
+}
+
+.sofa-calendar-month-cell-current .sofa-calendar-month-label {
+  color: var(--sofa-color-primary);
+  font-weight: 700;
+}
+
+.sofa-calendar-month-cell-selected .sofa-calendar-month-btn {
+  background: var(--sofa-color-primary);
+  color: #fff;
+}
+
+.sofa-calendar-month-cell-selected .sofa-calendar-month-label,
+.sofa-calendar-month-cell-selected .sofa-calendar-month-content {
+  color: #fff;
+}
+
+/* 紧凑卡片模式：更小单元格 */
+.sofa-calendar-card {
+  width: 300px;
+  padding: 8px;
+}
+
+.sofa-calendar-card .sofa-calendar-cell,
+.sofa-calendar-card .sofa-calendar-date-btn {
+  min-height: 40px;
+  height: 40px;
+}
+
+.sofa-calendar-card .sofa-calendar-date-btn {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.sofa-calendar-card .sofa-calendar-date-content {
+  display: none;
+}
+
+.sofa-calendar-card .sofa-calendar-month-cell,
+.sofa-calendar-card .sofa-calendar-month-btn {
+  min-height: 56px;
+}

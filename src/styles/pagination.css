@@ -1,0 +1,95 @@
+/* Pagination 分页器 */
+.sofa-pagination {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--sofa-font-size-sm);
+  flex-wrap: wrap;
+}
+
+.sofa-pagination-total {
+  color: var(--sofa-text-secondary);
+  margin-right: 8px;
+}
+
+.sofa-pagination-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 6px;
+  border: 1px solid var(--sofa-border-color-strong);
+  border-radius: var(--sofa-radius-xs);
+  background: var(--sofa-bg-container);
+  color: var(--sofa-text-primary);
+  cursor: pointer;
+  font-size: var(--sofa-font-size-sm);
+  font-family: var(--sofa-font-family);
+  transition: var(--sofa-transition);
+  box-sizing: border-box;
+}
+
+.sofa-pagination-btn:hover:not(:disabled):not(.sofa-pagination-btn-active) {
+  color: var(--sofa-color-primary);
+  border-color: var(--sofa-color-primary);
+}
+
+.sofa-pagination-btn:disabled {
+  cursor: not-allowed;
+  color: var(--sofa-disabled-color);
+  background: var(--sofa-fill-color);
+}
+
+.sofa-pagination-btn-active {
+  background: var(--sofa-color-primary);
+  border-color: var(--sofa-color-primary);
+  color: #fff;
+}
+
+.sofa-pagination-ellipsis {
+  color: var(--sofa-text-tertiary);
+  padding: 0 2px;
+  user-select: none;
+}
+
+.sofa-pagination-size {
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid var(--sofa-border-color-strong);
+  border-radius: var(--sofa-radius-xs);
+  background: var(--sofa-bg-container);
+  color: var(--sofa-text-primary);
+  font-size: var(--sofa-font-size-sm);
+  cursor: pointer;
+}
+
+.sofa-pagination-jumper {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--sofa-text-secondary);
+}
+
+.sofa-pagination-input {
+  width: 48px;
+  height: 32px;
+  text-align: center;
+  border: 1px solid var(--sofa-border-color-strong);
+  border-radius: var(--sofa-radius-xs);
+  background: var(--sofa-bg-container);
+  color: var(--sofa-text-primary);
+  font-size: var(--sofa-font-size-sm);
+  box-sizing: border-box;
+}
+
+.sofa-pagination-input:focus {
+  outline: none;
+  border-color: var(--sofa-color-primary);
+  box-shadow: 0 0 0 3px var(--sofa-color-primary-1);
+}
+
+.sofa-pagination-disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}

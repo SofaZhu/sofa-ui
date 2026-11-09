@@ -1,0 +1,89 @@
+/* Dropdown 下拉菜单 */
+.sofa-dropdown {
+  display: inline-flex;
+  position: relative;
+}
+
+.sofa-dropdown-trigger {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.sofa-dropdown-popup {
+  min-width: 140px;
+  padding: 4px;
+  background: var(--sofa-bg-container);
+  border: 1px solid var(--sofa-border);
+  border-radius: var(--sofa-radius-md);
+  box-shadow: var(--sofa-shadow);
+}
+
+.sofa-dropdown-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sofa-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-primary);
+  border-radius: var(--sofa-radius-sm);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sofa-dropdown-item:hover {
+  background: var(--sofa-fill-tertiary);
+}
+
+.sofa-dropdown-item-disabled {
+  color: var(--sofa-text-disabled);
+  cursor: not-allowed;
+}
+
+.sofa-dropdown-item-disabled:hover {
+  background: transparent;
+}
+
+.sofa-dropdown-item-danger {
+  color: var(--sofa-error);
+}
+
+.sofa-dropdown-item-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.sofa-dropdown-item-parent {
+  position: relative;
+  justify-content: space-between;
+}
+
+.sofa-dropdown-item-arrow {
+  color: var(--sofa-text-tertiary);
+}
+
+.sofa-dropdown-submenu {
+  position: absolute;
+  left: 100%;
+  top: -4px;
+  display: none;
+  z-index: var(--sofa-z-index-popup);
+}
+
+.sofa-dropdown-submenu {
+  min-width: 140px;
+  padding: 4px;
+  background: var(--sofa-bg-container);
+  border: 1px solid var(--sofa-border);
+  border-radius: var(--sofa-radius-md);
+  box-shadow: var(--sofa-shadow);
+}
+
+.sofa-dropdown-item-parent:hover > .sofa-dropdown-submenu {
+  display: block;
+}

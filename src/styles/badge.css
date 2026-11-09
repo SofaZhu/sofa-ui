@@ -1,0 +1,48 @@
+/* Badge 徽标 */
+.sofa-badge {
+  display: inline-flex;
+  position: relative;
+  vertical-align: middle;
+}
+
+.sofa-badge-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: var(--sofa-color-error);
+  color: #fff;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 0 0 2px var(--sofa-bg-container);
+  box-sizing: border-box;
+}
+
+.sofa-badge-sup {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 0;
+  transform: translate(50%, -50%);
+}
+
+.sofa-badge-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sofa-color-error);
+  box-shadow: 0 0 0 2px var(--sofa-bg-container);
+}
+
+.sofa-badge-dot-success { background: var(--sofa-color-success); }
+.sofa-badge-dot-warning { background: var(--sofa-color-warning); }
+.sofa-badge-dot-error { background: var(--sofa-color-error); }
+.sofa-badge-dot-info { background: var(--sofa-color-info); }
+.sofa-badge-dot-primary { background: var(--sofa-color-primary); }
+.sofa-badge-dot-default { background: var(--sofa-text-quaternary); }

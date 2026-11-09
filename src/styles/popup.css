@@ -1,0 +1,72 @@
+/* Tooltip / Popover / Popconfirm 浮层 */
+.sofa-tooltip {
+  background: var(--sofa-text-primary);
+  color: var(--sofa-bg-container);
+  border-radius: var(--sofa-radius-xs);
+  padding: 5px 10px;
+  font-size: var(--sofa-font-size-xs);
+  line-height: 1.6;
+  max-width: min(240px, calc(100vw - 16px));
+  overflow-wrap: anywhere;
+  box-shadow: var(--sofa-shadow-sm);
+  animation-name: sofa-fade-in;
+}
+
+.sofa-tooltip-content {
+  position: relative;
+  z-index: 1;
+}
+
+.sofa-tooltip .sofa-popup-arrow {
+  background: inherit;
+}
+
+.sofa-popover {
+  background: var(--sofa-bg-container);
+  color: var(--sofa-text-primary);
+  border: 1px solid var(--sofa-border-color);
+  border-radius: var(--sofa-radius-md);
+  box-shadow: var(--sofa-shadow-md);
+  padding: 12px;
+  max-width: min(320px, calc(100vw - 16px));
+  overflow-wrap: anywhere;
+  animation-name: sofa-fade-in;
+}
+
+.sofa-popover-title {
+  font-weight: 600;
+  font-size: var(--sofa-font-size-sm);
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--sofa-border-color);
+}
+
+.sofa-popover-content {
+  font-size: var(--sofa-font-size-sm);
+  line-height: 1.6;
+}
+
+/* 气泡确认框 */
+.sofa-popconfirm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+}
+
+.sofa-popconfirm-title {
+  font-size: var(--sofa-font-size-sm);
+  font-weight: 500;
+}
+
+.sofa-popconfirm-description {
+  font-size: var(--sofa-font-size-xs);
+  color: var(--sofa-text-secondary);
+}
+
+.sofa-popconfirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}

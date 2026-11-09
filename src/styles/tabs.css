@@ -1,0 +1,93 @@
+/* Tabs 标签页 */
+.sofa-tabs {
+  width: 100%;
+}
+
+.sofa-tabs-header {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--sofa-border-color);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.sofa-tabs-centered .sofa-tabs-header {
+  justify-content: center;
+}
+
+.sofa-tabs-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  color: var(--sofa-text-secondary);
+  font-size: var(--sofa-font-size-sm);
+  font-family: var(--sofa-font-family);
+  cursor: pointer;
+  transition: var(--sofa-transition);
+  white-space: nowrap;
+}
+
+.sofa-tabs-tab:hover:not(:disabled) {
+  color: var(--sofa-color-primary);
+}
+
+.sofa-tabs-tab:disabled {
+  cursor: not-allowed;
+  color: var(--sofa-disabled-color);
+}
+
+.sofa-tabs-tab-active {
+  color: var(--sofa-color-primary);
+  font-weight: 500;
+}
+
+/* 下划线风格：激活项下方主色横线 */
+.sofa-tabs-line .sofa-tabs-tab-active::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--sofa-color-primary);
+}
+
+/* 卡片风格 */
+.sofa-tabs-card .sofa-tabs-header {
+  border-bottom: none;
+  gap: 0;
+}
+
+.sofa-tabs-card .sofa-tabs-tab {
+  border: 1px solid var(--sofa-border-color);
+  border-radius: var(--sofa-radius-sm) var(--sofa-radius-sm) 0 0;
+  margin-right: 2px;
+  background: var(--sofa-fill-color-secondary);
+}
+
+.sofa-tabs-card .sofa-tabs-tab-active {
+  background: var(--sofa-bg-container);
+  border-bottom-color: var(--sofa-bg-container);
+}
+
+.sofa-tabs-tab-close {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 50%;
+  padding: 1px;
+  opacity: 0.6;
+}
+
+.sofa-tabs-tab-close:hover {
+  opacity: 1;
+  background: var(--sofa-fill-color);
+}
+
+.sofa-tabs-content {
+  padding: 4px 0;
+}

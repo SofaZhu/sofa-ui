@@ -1,0 +1,165 @@
+/* Button 按钮 */
+.sofa-btn {
+  --sofa-button-accent: var(--sofa-color-primary);
+  --sofa-button-solid-text: var(--sofa-button-primary-text, #fff);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid transparent;
+  border-radius: var(--sofa-radius-sm);
+  font-family: var(--sofa-font-family);
+  font-size: var(--sofa-font-size-sm);
+  line-height: 1.4;
+  padding: 0 16px;
+  height: 32px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.sofa-btn:focus-visible {
+  outline: 2px solid var(--sofa-text-primary);
+  outline-offset: 2px;
+}
+
+.sofa-btn-md {
+  height: 32px;
+  padding: 0 16px;
+  font-size: var(--sofa-font-size-sm);
+}
+
+.sofa-btn-sm {
+  height: 26px;
+  padding: 0 11px;
+  font-size: var(--sofa-font-size-xs);
+}
+
+.sofa-btn-lg {
+  height: 40px;
+  padding: 0 20px;
+  font-size: var(--sofa-font-size-md);
+}
+
+.sofa-btn-block {
+  width: 100%;
+}
+
+.sofa-btn-round {
+  border-radius: var(--sofa-radius-full);
+}
+
+.sofa-btn-circle {
+  border-radius: 50%;
+  padding: 0;
+  width: 32px;
+}
+
+.sofa-btn-circle.sofa-btn-sm {
+  width: 26px;
+}
+
+.sofa-btn-circle.sofa-btn-lg {
+  width: 40px;
+}
+
+/* 填充按钮保留主题底色，边缘内阴影区分悬停与按下。 */
+.sofa-btn-danger {
+  --sofa-button-accent: var(--sofa-color-error);
+  --sofa-button-solid-text: var(--sofa-button-danger-text, #000);
+}
+
+@supports (color: contrast-color(white)) {
+  .sofa-btn {
+    --sofa-button-solid-text: contrast-color(var(--sofa-button-accent));
+  }
+}
+
+.sofa-btn-primary {
+  background: var(--sofa-button-accent);
+  border-color: var(--sofa-button-accent);
+  color: var(--sofa-button-solid-text);
+}
+
+.sofa-btn-primary:not(.sofa-btn-ghost):hover:not(:disabled) {
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, currentColor 20%, transparent);
+}
+
+.sofa-btn-primary:not(.sofa-btn-ghost):active:not(:disabled) {
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, currentColor 36%, transparent);
+}
+
+.sofa-btn-default,
+.sofa-btn-dashed {
+  background: var(--sofa-bg-container);
+  border-color: var(--sofa-border-color-strong);
+  color: var(--sofa-text-primary);
+}
+
+.sofa-btn-dashed {
+  border-style: dashed;
+}
+
+.sofa-btn-text,
+.sofa-btn-link,
+.sofa-btn-ghost {
+  background: transparent;
+}
+
+.sofa-btn-text {
+  padding: 0 8px;
+  color: var(--sofa-text-primary);
+}
+
+.sofa-btn-link {
+  padding: 0 4px;
+}
+
+.sofa-btn-link,
+.sofa-btn-ghost.sofa-btn-primary,
+.sofa-btn-danger:not(.sofa-btn-primary) {
+  color: color-mix(in srgb, var(--sofa-button-accent) 22%, var(--sofa-text-primary));
+}
+
+.sofa-btn-danger:not(.sofa-btn-primary):not(.sofa-btn-link):not(.sofa-btn-text) {
+  border-color: color-mix(in srgb, var(--sofa-button-accent) 55%, var(--sofa-border-color-strong));
+}
+
+.sofa-btn:is(.sofa-btn-default, .sofa-btn-dashed, .sofa-btn-text, .sofa-btn-link, .sofa-btn-ghost):hover:not(:disabled) {
+  background-color: color-mix(in srgb, var(--sofa-button-accent) 8%, var(--sofa-bg-container));
+}
+
+.sofa-btn:is(.sofa-btn-default, .sofa-btn-dashed, .sofa-btn-text, .sofa-btn-link, .sofa-btn-ghost):active:not(:disabled) {
+  background-color: color-mix(in srgb, var(--sofa-button-accent) 14%, var(--sofa-bg-container));
+}
+
+.sofa-btn-link:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+/* 加载与禁用 */
+.sofa-btn:disabled,
+.sofa-btn-loading {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.sofa-btn:disabled:not(.sofa-btn-loading) {
+  color: var(--sofa-disabled-color);
+  background: var(--sofa-fill-color);
+  border-color: var(--sofa-border-color);
+}
+
+.sofa-btn-loading-icon {
+  animation: sofa-spin 1s linear infinite;
+}
+
+.sofa-btn-content {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

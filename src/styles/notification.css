@@ -1,0 +1,102 @@
+/* Notification 通知 */
+.sofa-notification-container {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: var(--sofa-zindex-message);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+}
+
+.sofa-notification-topLeft {
+  left: 16px;
+  right: auto;
+}
+
+.sofa-notification-bottomRight {
+  top: auto;
+  bottom: 16px;
+}
+
+.sofa-notification-bottomLeft {
+  top: auto;
+  bottom: 16px;
+  left: 16px;
+  right: auto;
+}
+
+.sofa-notification {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--sofa-bg-container);
+  border: 1px solid var(--sofa-border-color);
+  border-radius: var(--sofa-radius-md);
+  box-shadow: var(--sofa-shadow-md);
+  animation: sofa-slide-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sofa-notification-leaving {
+  animation: sofa-slide-right 0.2s ease forwards;
+}
+
+.sofa-notification-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sofa-notification-success .sofa-notification-icon {
+  color: var(--sofa-color-success);
+}
+
+.sofa-notification-error .sofa-notification-icon {
+  color: var(--sofa-color-error);
+}
+
+.sofa-notification-warning .sofa-notification-icon {
+  color: var(--sofa-color-warning);
+}
+
+.sofa-notification-info .sofa-notification-icon {
+  color: var(--sofa-color-info);
+}
+
+.sofa-notification-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.sofa-notification-title {
+  font-size: var(--sofa-font-size-sm);
+  font-weight: 600;
+  color: var(--sofa-text-primary);
+  margin-bottom: 4px;
+}
+
+.sofa-notification-description {
+  font-size: var(--sofa-font-size-xs);
+  color: var(--sofa-text-secondary);
+  line-height: 1.6;
+}
+
+.sofa-notification-footer {
+  margin-top: 8px;
+}
+
+.sofa-notification-close {
+  border: none;
+  background: transparent;
+  color: var(--sofa-text-tertiary);
+  cursor: pointer;
+  display: inline-flex;
+  padding: 2px;
+  height: fit-content;
+}
+
+.sofa-notification-close:hover {
+  color: var(--sofa-text-primary);
+}

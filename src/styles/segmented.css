@@ -1,0 +1,82 @@
+/* Segmented 分段控制器 */
+.sofa-segmented {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  gap: 2px;
+  background: var(--sofa-fill-color);
+  border-radius: var(--sofa-radius-md);
+  box-sizing: border-box;
+  position: relative;
+  max-width: 100%;
+}
+
+.sofa-segmented-block {
+  display: flex;
+  width: 100%;
+}
+
+.sofa-segmented-block .sofa-segmented-item {
+  flex: 1;
+  justify-content: center;
+}
+
+.sofa-segmented-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  color: var(--sofa-text-secondary);
+  font-size: var(--sofa-font-size-sm);
+  font-family: var(--sofa-font-family);
+  line-height: 1;
+  padding: 6px 14px;
+  border-radius: var(--sofa-radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s var(--sofa-motion-ease), background 0.2s var(--sofa-motion-ease), box-shadow 0.2s var(--sofa-motion-ease);
+}
+
+.sofa-segmented-small .sofa-segmented-item {
+  padding: 4px 10px;
+  font-size: var(--sofa-font-size-xs);
+}
+
+.sofa-segmented-large .sofa-segmented-item {
+  padding: 8px 18px;
+  font-size: var(--sofa-font-size-md);
+}
+
+.sofa-segmented-item:hover:not(.sofa-segmented-item-disabled) {
+  color: var(--sofa-text-primary);
+  background: var(--sofa-fill-color-secondary);
+}
+
+.sofa-segmented-item-active {
+  background: var(--sofa-bg-container);
+  color: var(--sofa-color-primary);
+  font-weight: 500;
+  box-shadow: var(--sofa-shadow-sm);
+}
+
+.sofa-segmented-item-active:hover {
+  color: var(--sofa-color-primary);
+  background: var(--sofa-bg-container);
+}
+
+.sofa-segmented-item-disabled {
+  color: var(--sofa-disabled-color);
+  cursor: not-allowed;
+}
+
+.sofa-segmented-disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.sofa-segmented-item:focus-visible {
+  outline: 2px solid var(--sofa-color-primary-border);
+  outline-offset: 1px;
+}

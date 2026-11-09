@@ -1,0 +1,24 @@
+/* QRCode 二维码 */
+.sofa-qrcode {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  line-height: 0;
+}
+
+.sofa-qrcode canvas {
+  display: block;
+}
+
+.sofa-qrcode-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sofa-bg-container);
+  border-radius: var(--sofa-radius-sm);
+  pointer-events: none;
+  line-height: 0;
+}

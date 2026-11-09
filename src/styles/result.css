@@ -1,0 +1,77 @@
+/* Result 结果页 */
+.sofa-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 48px 24px;
+  text-align: center;
+  box-sizing: border-box;
+  color: var(--sofa-text-primary);
+}
+
+.sofa-result-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.sofa-result-success .sofa-result-icon {
+  color: var(--sofa-color-success);
+}
+
+.sofa-result-error .sofa-result-icon {
+  color: var(--sofa-color-error);
+}
+
+.sofa-result-info .sofa-result-icon {
+  color: var(--sofa-color-info);
+}
+
+.sofa-result-warning .sofa-result-icon {
+  color: var(--sofa-color-warning);
+}
+
+/* 异常状态码：半透明大字叠加在图标上 */
+.sofa-result-code .sofa-result-icon {
+  color: var(--sofa-color-warning);
+  opacity: 0.85;
+}
+
+.sofa-result-code-text {
+  position: absolute;
+  top: 8px;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--sofa-text-quaternary);
+  opacity: 0.35;
+  letter-spacing: 2px;
+  user-select: none;
+}
+
+.sofa-result-code.sofa-result-code .sofa-result-code-text {
+  color: var(--sofa-text-quaternary);
+}
+
+.sofa-result-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.sofa-result-subtitle {
+  font-size: var(--sofa-font-size-md);
+  color: var(--sofa-text-secondary);
+  line-height: 1.6;
+}
+
+.sofa-result-extra {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}

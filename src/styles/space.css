@@ -1,0 +1,17 @@
+/* Space 间距容器 */
+.sofa-space {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.sofa-space-vertical {
+  flex-direction: column;
+}
+
+.sofa-space-wrap {
+  flex-wrap: wrap;
+}
+
+.sofa-space-split {
+  align-self: stretch;
+}

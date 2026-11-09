@@ -1,0 +1,42 @@
+/* Sofa UI 暗色模式：通过 html[data-theme="dark"] 切换
+   色阶与状态色均基于主色 color-mix 动态派生，覆盖主色后暗色模式同样联动 */
+[data-theme='dark'] {
+  --sofa-text-primary: #e6e8eb;
+  --sofa-text-secondary: #b7bcc4;
+  --sofa-text-tertiary: #8a919c;
+  --sofa-text-quaternary: #6b7280;
+  --sofa-border-color: #3a3f4b;
+  --sofa-border-color-strong: #4a5160;
+  --sofa-fill-color: #2a2e38;
+  --sofa-fill-color-secondary: #23262f;
+  --sofa-bg-container: #1d2028;
+  --sofa-bg-page: #16181f;
+  --sofa-disabled-color: #4a5160;
+  --sofa-placeholder-color: #6b7280;
+
+  /* 主色浅阶在暗色下改为深底浅字（背景阶反转） */
+  --sofa-color-primary-1: color-mix(in srgb, var(--sofa-color-primary) 16%, #1d2028);
+  --sofa-color-primary-2: color-mix(in srgb, var(--sofa-color-primary) 26%, #1d2028);
+  --sofa-color-primary-3: color-mix(in srgb, var(--sofa-color-primary) 38%, #1d2028);
+  --sofa-color-primary-4: color-mix(in srgb, var(--sofa-color-primary) 52%, #1d2028);
+  --sofa-color-primary-5: color-mix(in srgb, var(--sofa-color-primary) 68%, #1d2028);
+
+  --sofa-color-primary-bg: color-mix(in srgb, var(--sofa-color-primary) 16%, transparent);
+  --sofa-color-primary-border: color-mix(in srgb, var(--sofa-color-primary) 45%, transparent);
+
+  --sofa-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.4);
+  --sofa-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.4);
+  --sofa-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.55), 0 16px 48px rgba(0, 0, 0, 0.45);
+}
+
+/* 暗色下语义浅色背景同样深底化 */
+[data-theme='dark'] {
+  --sofa-color-success-bg: color-mix(in srgb, var(--sofa-color-success) 14%, #1d2028);
+  --sofa-color-warning-bg: color-mix(in srgb, var(--sofa-color-warning) 14%, #1d2028);
+  --sofa-color-error-bg: color-mix(in srgb, var(--sofa-color-error) 14%, #1d2028);
+  --sofa-color-info-bg: color-mix(in srgb, var(--sofa-color-info) 14%, #1d2028);
+  --sofa-color-success-border: color-mix(in srgb, var(--sofa-color-success) 42%, transparent);
+  --sofa-color-warning-border: color-mix(in srgb, var(--sofa-color-warning) 42%, transparent);
+  --sofa-color-error-border: color-mix(in srgb, var(--sofa-color-error) 42%, transparent);
+  --sofa-color-info-border: color-mix(in srgb, var(--sofa-color-info) 42%, transparent);
+}

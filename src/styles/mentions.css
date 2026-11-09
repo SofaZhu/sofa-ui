@@ -1,0 +1,36 @@
+/* Mentions 提及输入框 */
+.sofa-mentions {
+  display: inline-flex;
+  width: 100%;
+  max-width: 420px;
+}
+
+.sofa-mentions-popup {
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 4px;
+  border: 1px solid var(--sofa-border-color);
+  border-radius: var(--sofa-radius-md);
+  background: var(--sofa-bg-container);
+  box-shadow: var(--sofa-shadow-md);
+  animation: sofa-scale-in 0.18s ease;
+  min-width: 160px;
+}
+
+.sofa-mentions-option {
+  padding: 7px 10px;
+  border-radius: var(--sofa-radius-sm);
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-primary);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: var(--sofa-transition);
+}
+
+.sofa-mentions-option:hover,
+.sofa-mentions-option-active {
+  background: var(--sofa-color-primary-bg);
+  color: var(--sofa-color-primary);
+}

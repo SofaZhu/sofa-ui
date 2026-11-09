@@ -1,0 +1,31 @@
+/* BackTop 回到顶部 */
+.sofa-back-top {
+  position: fixed;
+  right: 32px;
+  bottom: 64px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sofa-bg-container);
+  color: var(--sofa-text-primary);
+  border: 1px solid var(--sofa-border);
+  border-radius: var(--sofa-radius-md);
+  box-shadow: var(--sofa-shadow);
+  cursor: pointer;
+  z-index: var(--sofa-z-index-fixed);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.sofa-back-top:hover {
+  color: var(--sofa-primary);
+  border-color: var(--sofa-primary);
+}
+
+.sofa-back-top-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  pointer-events: none;
+}

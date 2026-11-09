@@ -1,0 +1,131 @@
+/* Menu 导航菜单 */
+.sofa-menu {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 160px;
+  padding: 6px;
+  list-style: none;
+}
+
+.sofa-menu-item,
+.sofa-submenu-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-primary);
+  border-radius: var(--sofa-radius-sm);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sofa-menu-item:hover,
+.sofa-submenu-title:hover {
+  background: var(--sofa-fill-tertiary);
+}
+
+.sofa-menu-item-selected,
+.sofa-submenu-open > .sofa-submenu-title {
+  color: var(--sofa-primary);
+  background: var(--sofa-primary-soft);
+  font-weight: 500;
+}
+
+.sofa-menu-item-disabled {
+  color: var(--sofa-text-disabled);
+  cursor: not-allowed;
+}
+
+.sofa-menu-item-disabled:hover {
+  background: transparent;
+}
+
+.sofa-menu-item-icon,
+.sofa-submenu-arrow {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.sofa-submenu {
+  position: relative;
+}
+
+.sofa-submenu-arrow {
+  margin-left: auto;
+  color: var(--sofa-text-tertiary);
+  transition: transform 0.2s ease;
+}
+
+.sofa-submenu-open > .sofa-submenu-title .sofa-submenu-arrow {
+  transform: rotate(180deg);
+}
+
+/* inline 模式：展开子菜单（折叠动画） */
+.sofa-submenu-content {
+  margin-left: 12px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.24s ease;
+}
+
+.sofa-submenu-open > .sofa-submenu-content {
+  max-height: 320px;
+}
+
+.sofa-menu-group-title {
+  padding: 8px 12px 4px;
+  font-size: var(--sofa-font-size-xs);
+  color: var(--sofa-text-tertiary);
+}
+
+/* 横向模式 */
+.sofa-menu-horizontal {
+  flex-direction: row;
+  gap: 8px;
+  min-width: 0;
+  border-bottom: 1px solid var(--sofa-border);
+  padding: 0;
+}
+
+.sofa-menu-horizontal .sofa-submenu {
+  position: relative;
+}
+
+.sofa-menu-horizontal .sofa-submenu-content {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-left: 0;
+  max-height: none;
+  display: none;
+  min-width: 140px;
+  padding: 6px;
+  background: var(--sofa-bg-container);
+  border: 1px solid var(--sofa-border);
+  border-radius: var(--sofa-radius-md);
+  box-shadow: var(--sofa-shadow);
+  z-index: var(--sofa-z-index-popup);
+}
+
+.sofa-menu-horizontal .sofa-submenu-open > .sofa-submenu-content {
+  display: block;
+}
+
+.sofa-menu-horizontal .sofa-menu-item-selected {
+  position: relative;
+}
+
+.sofa-menu-horizontal .sofa-menu-item-selected::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: -1px;
+  height: 2px;
+  background: var(--sofa-primary);
+  border-radius: 1px;
+}

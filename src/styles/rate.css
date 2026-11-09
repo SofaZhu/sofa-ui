@@ -1,0 +1,36 @@
+/* Rate 评分 */
+.sofa-rate {
+  display: inline-flex;
+  align-items: center;
+  color: var(--sofa-color-warning);
+}
+
+.sofa-rate-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.sofa-rate-disabled .sofa-rate-item {
+  cursor: not-allowed;
+}
+
+.sofa-rate-star-bg {
+  color: var(--sofa-fill-color);
+  display: inline-flex;
+}
+
+.sofa-rate-star-fg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: var(--sofa-color-warning);
+  display: inline-flex;
+}
+
+.sofa-rate-text {
+  margin-left: 8px;
+  color: var(--sofa-text-tertiary);
+}

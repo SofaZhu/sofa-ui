@@ -1,0 +1,85 @@
+/* Timeline 时间轴 */
+.sofa-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: var(--sofa-text-primary);
+  font-size: var(--sofa-font-size-sm);
+}
+
+.sofa-timeline-item {
+  position: relative;
+  padding: 0 0 24px 48px;
+}
+
+/* 左侧垂直连接线 */
+.sofa-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: 22px;
+  bottom: -6px;
+  width: 2px;
+  background: var(--sofa-border-color);
+}
+
+.sofa-timeline-item:last-child::before {
+  display: none;
+}
+
+/* 节点圆点 */
+.sofa-timeline-dot {
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--sofa-color-primary);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 右对齐布局 */
+.sofa-timeline-item-pos-right {
+  padding: 0 48px 24px 0;
+  text-align: right;
+}
+
+.sofa-timeline-item-pos-right::before {
+  left: auto;
+  right: 21px;
+}
+
+.sofa-timeline-item-pos-right .sofa-timeline-dot {
+  left: auto;
+  right: 14px;
+}
+
+/* pending 尾项：虚线连接线与空心节点 */
+.sofa-timeline-item-pending::before {
+  background: transparent;
+  border-left: 2px dashed var(--sofa-border-color-strong);
+}
+
+.sofa-timeline-item-pending .sofa-timeline-dot {
+  background: var(--sofa-bg-container);
+  border: 2px dashed var(--sofa-border-color-strong);
+}
+
+.sofa-timeline-label {
+  color: var(--sofa-text-tertiary);
+  font-size: var(--sofa-font-size-xs);
+  margin-bottom: 4px;
+}
+
+.sofa-timeline-item-pos-right .sofa-timeline-label {
+  margin-bottom: 4px;
+}
+
+.sofa-timeline-content {
+  line-height: 1.7;
+  color: var(--sofa-text-secondary);
+}

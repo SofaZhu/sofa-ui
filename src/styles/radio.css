@@ -1,0 +1,126 @@
+/* Radio 单选框 */
+.sofa-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-primary);
+  user-select: none;
+}
+
+.sofa-radio-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.sofa-radio-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--sofa-border-color-strong);
+  border-radius: 50%;
+  background: var(--sofa-bg-container);
+  box-sizing: border-box;
+  transition: var(--sofa-transition);
+}
+
+.sofa-radio-dot::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sofa-color-primary);
+  transform: scale(0);
+  transition: transform 0.15s ease;
+}
+
+.sofa-radio-checked .sofa-radio-dot {
+  border-color: var(--sofa-color-primary);
+}
+
+.sofa-radio-checked .sofa-radio-dot::after {
+  transform: scale(1);
+}
+
+.sofa-radio:hover:not(.sofa-radio-disabled) .sofa-radio-dot {
+  border-color: var(--sofa-color-primary);
+}
+
+.sofa-radio-disabled {
+  cursor: not-allowed;
+  color: var(--sofa-disabled-color);
+}
+
+.sofa-radio-disabled .sofa-radio-dot {
+  background: var(--sofa-fill-color);
+  border-color: var(--sofa-border-color);
+}
+
+.sofa-radio-group {
+  display: inline-flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sofa-radio-group-vertical {
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 按钮形态 */
+.sofa-radio-group-button {
+  display: inline-flex;
+  gap: 0;
+  border: 1px solid var(--sofa-border-color-strong);
+  border-radius: var(--sofa-radius-sm);
+  overflow: hidden;
+}
+
+.sofa-radio-button {
+  border: none;
+  background: var(--sofa-bg-container);
+  color: var(--sofa-text-primary);
+  padding: 0 16px;
+  height: 32px;
+  font-size: var(--sofa-font-size-sm);
+  cursor: pointer;
+  transition: var(--sofa-transition);
+  font-family: var(--sofa-font-family);
+}
+
+.sofa-radio-button + .sofa-radio-button {
+  border-left: 1px solid var(--sofa-border-color-strong);
+}
+
+.sofa-radio-button:hover:not(:disabled):not(.sofa-radio-button-active) {
+  color: var(--sofa-color-primary);
+}
+
+.sofa-radio-button-active {
+  background: var(--sofa-color-primary);
+  color: #fff;
+}
+
+.sofa-radio-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  color: var(--sofa-disabled-color);
+  background: var(--sofa-fill-color);
+}
+
+.sofa-radio-group-small .sofa-radio-button {
+  height: 26px;
+  padding: 0 12px;
+  font-size: var(--sofa-font-size-xs);
+}
+
+.sofa-radio-group-large .sofa-radio-button {
+  height: 40px;
+  padding: 0 20px;
+  font-size: var(--sofa-font-size-md);
+}

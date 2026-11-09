@@ -1,0 +1,203 @@
+/* Tree 树形控件 */
+.sofa-tree {
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-primary);
+  outline: none;
+  user-select: none;
+}
+
+.sofa-tree-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sofa-tree-list-level {
+  padding-left: 24px;
+}
+
+.sofa-tree-item {
+  position: relative;
+  line-height: 24px;
+}
+
+/* 节点行 */
+.sofa-tree-node {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 1px 4px;
+  border-radius: var(--sofa-radius-sm);
+  cursor: pointer;
+  outline: none;
+  transition: var(--sofa-transition);
+  min-height: 24px;
+}
+
+.sofa-tree-node:hover:not(.sofa-tree-node-disabled) {
+  background: var(--sofa-fill-color);
+}
+
+.sofa-tree-node-focused {
+  box-shadow: 0 0 0 2px var(--sofa-color-primary-1);
+}
+
+.sofa-tree-node-selected {
+  background: var(--sofa-color-primary-bg);
+  color: var(--sofa-color-primary-7);
+}
+
+.sofa-tree-node-disabled {
+  cursor: not-allowed;
+  color: var(--sofa-disabled-color);
+}
+
+.sofa-tree-node-disabled:hover {
+  background: transparent;
+}
+
+/* 开关列 */
+.sofa-tree-switcher {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--sofa-text-tertiary);
+}
+
+.sofa-tree-switcher-arrow {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.sofa-tree-switcher-arrow-open {
+  transform: rotate(90deg);
+}
+
+/* showLine 时的加减方块 */
+.sofa-tree-switcher-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--sofa-border-color-strong);
+  border-radius: var(--sofa-radius-xs);
+  background: var(--sofa-bg-container);
+  color: var(--sofa-text-tertiary);
+}
+
+.sofa-tree-item-disabled .sofa-tree-switcher-box {
+  color: var(--sofa-disabled-color);
+}
+
+/* 连线样式：列线（每层开关列）+ 分支线（接到父层列线） */
+.sofa-tree-show-line .sofa-tree-item::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid var(--sofa-border-color);
+}
+
+.sofa-tree-show-line .sofa-tree-item:last-child::before {
+  bottom: calc(50% + 12px);
+}
+
+/* 每个非根节点向父层列线伸出横线，接到本行开关 */
+.sofa-tree-show-line .sofa-tree-item::after {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 12px;
+  width: 12px;
+  border-top: 1px solid var(--sofa-border-color);
+}
+
+.sofa-tree-show-line > .sofa-tree-list > .sofa-tree-item::before,
+.sofa-tree-show-line > .sofa-tree-list > .sofa-tree-item::after {
+  display: none;
+}
+
+/* 复选框 */
+.sofa-tree-checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border: 1px solid var(--sofa-border-color-strong);
+  border-radius: var(--sofa-radius-xs);
+  background: var(--sofa-bg-container);
+  color: #fff;
+  box-sizing: border-box;
+  transition: var(--sofa-transition);
+  cursor: pointer;
+}
+
+.sofa-tree-checkbox-icon {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: var(--sofa-transition);
+}
+
+.sofa-tree-checkbox-dash {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  height: 2px;
+  background: var(--sofa-color-primary);
+  border-radius: 1px;
+}
+
+.sofa-tree-checkbox-checked {
+  background: var(--sofa-color-primary);
+  border-color: var(--sofa-color-primary);
+}
+
+.sofa-tree-checkbox-checked .sofa-tree-checkbox-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.sofa-tree-checkbox:hover:not(.sofa-tree-checkbox-disabled) {
+  border-color: var(--sofa-color-primary);
+}
+
+.sofa-tree-checkbox-disabled {
+  cursor: not-allowed;
+  background: var(--sofa-fill-color);
+  border-color: var(--sofa-border-color);
+}
+
+/* 节点标题 */
+.sofa-tree-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sofa-tree-title-disabled {
+  cursor: not-allowed;
+}
+
+/* 拖拽落点样式 */
+.sofa-tree-node.sofa-tree-node-drop-before {
+  box-shadow: 0 -2px 0 0 var(--sofa-color-primary);
+}
+
+.sofa-tree-node.sofa-tree-node-drop-after {
+  box-shadow: 0 2px 0 0 var(--sofa-color-primary);
+}
+
+.sofa-tree-node.sofa-tree-node-drop-inside {
+  background: var(--sofa-color-primary-bg);
+  box-shadow: inset 0 0 0 1px var(--sofa-color-primary);
+}

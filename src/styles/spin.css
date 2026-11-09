@@ -1,0 +1,43 @@
+/* Spin 加载中 */
+.sofa-spin {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--sofa-color-primary);
+}
+
+.sofa-spin-icon {
+  animation: sofa-spin 0.9s linear infinite;
+}
+
+.sofa-spin-tip {
+  font-size: var(--sofa-font-size-xs);
+  color: var(--sofa-text-secondary);
+}
+
+.sofa-spin-wrapper {
+  position: relative;
+}
+
+.sofa-spin-mask {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--sofa-bg-container) 60%, transparent);
+  border-radius: inherit;
+  z-index: 10;
+  backdrop-filter: blur(1px);
+}
+
+.sofa-spin-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: var(--sofa-zindex-modal);
+  background: color-mix(in srgb, var(--sofa-bg-page) 70%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

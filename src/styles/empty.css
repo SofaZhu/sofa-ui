@@ -1,0 +1,22 @@
+/* Empty 空状态 */
+.sofa-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.sofa-empty-image {
+  opacity: 0.9;
+}
+
+.sofa-empty-description {
+  font-size: var(--sofa-font-size-sm);
+  color: var(--sofa-text-tertiary);
+}
+
+.sofa-empty-footer {
+  margin-top: 4px;
+}

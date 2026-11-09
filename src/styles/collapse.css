@@ -1,0 +1,92 @@
+/* Collapse 折叠面板 */
+.sofa-collapse {
+  background: var(--sofa-bg-container);
+  border-radius: var(--sofa-radius-md);
+  box-sizing: border-box;
+}
+
+.sofa-collapse-bordered {
+  border: 1px solid var(--sofa-border-color);
+}
+
+.sofa-collapse-ghost {
+  background: transparent;
+  border: none;
+}
+
+.sofa-collapse-item {
+  border-bottom: 1px solid var(--sofa-border-color);
+}
+
+.sofa-collapse-item:last-child {
+  border-bottom: none;
+}
+
+.sofa-collapse-ghost .sofa-collapse-item {
+  border-bottom-color: transparent;
+}
+
+.sofa-collapse-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  user-select: none;
+  color: var(--sofa-text-primary);
+  margin: 0;
+  background: none;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: var(--sofa-font-size-md);
+  font-weight: 500;
+}
+
+.sofa-collapse-item-disabled .sofa-collapse-header {
+  cursor: not-allowed;
+  color: var(--sofa-disabled-color);
+}
+
+.sofa-collapse-label {
+  flex: 1;
+  min-width: 0;
+}
+
+.sofa-collapse-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--sofa-text-secondary);
+  transition: transform var(--sofa-transition);
+}
+
+.sofa-collapse-item-active .sofa-collapse-arrow {
+  transform: rotate(180deg);
+}
+
+/* 纯 CSS 展开动画：grid-template-rows 0fr → 1fr */
+.sofa-collapse-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.sofa-collapse-item-active .sofa-collapse-content {
+  grid-template-rows: 1fr;
+}
+
+.sofa-collapse-content-inner {
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 16px;
+  color: var(--sofa-text-secondary);
+  font-size: var(--sofa-font-size-sm);
+  line-height: 1.7;
+}
+
+.sofa-collapse-item-active .sofa-collapse-content-inner {
+  padding-bottom: 16px;
+}
