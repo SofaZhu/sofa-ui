@@ -126,16 +126,25 @@ export function Entry() {
               { label: '年', value: 'year', disabled: true }
             ]}
           />
-          <RadioGroup
-            optionType="button"
-            size="small"
-            defaultValue="a"
-            options={[
-              { label: '小', value: 'a' },
-              { label: '中', value: 'b' },
-              { label: '大', value: 'c' }
-            ]}
-          />
+          {([
+            { size: 'small', label: '小号' },
+            { size: 'default', label: '中号' },
+            { size: 'large', label: '大号' }
+          ] as const).map(({ size, label }) => (
+            <Space key={size} size="middle">
+              <span className="demo-text">{label}</span>
+              <RadioGroup
+                optionType="button"
+                size={size}
+                defaultValue="day"
+                options={[
+                  { label: '日', value: 'day' },
+                  { label: '周', value: 'week' },
+                  { label: '月', value: 'month' }
+                ]}
+              />
+            </Space>
+          ))}
         </Space>
       </Demo>
 

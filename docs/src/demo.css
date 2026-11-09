@@ -455,7 +455,7 @@
   justify-content: safe center;
 }
 
-.app :where(button, input):focus-visible {
+:where(.app-nav-item, .app-theme-dot, .app-dark-toggle, .app-theme-custom input, .demo-toggle):focus-visible {
   outline: 2px solid var(--sofa-color-primary);
   outline-offset: 2px;
 }

@@ -152,7 +152,10 @@ export function usePop(options: UsePopOptions = {}): PopReturn {
     const alignStart = alignment === 'Left' || alignment === 'Top'
     const crossOffset = !alignment ? remaining / 2 : alignStart ? 0 : remaining
     const clamp = (value: number, limit: number) => Math.max(padding, Math.min(value, limit - padding))
-    const left = clamp(vertical ? anchorRect.left + crossOffset : positions[side], viewportWidth - width)
+    const idealLeft = vertical ? anchorRect.left + crossOffset : positions[side]
+    // 等宽下拉面板优先和锚点对齐，即使锚点贴着视口边缘。
+    const fitsAligned = vertical && widthRatio === 1 && idealLeft >= 0 && idealLeft + width <= viewportWidth
+    const left = fitsAligned ? idealLeft : clamp(idealLeft, viewportWidth - width)
     const top = clamp(vertical ? positions[side] : anchorRect.top + crossOffset, viewportHeight - height)
 
     setPlacement(`${side}${alignment}` as PopPlacement)

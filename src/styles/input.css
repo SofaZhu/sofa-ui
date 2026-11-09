@@ -1,5 +1,6 @@
 /* Input 输入框 / Textarea 文本域 */
 .sofa-input-wrapper {
+  --sofa-input-focus-color: var(--sofa-color-primary);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -19,25 +20,20 @@
   border-color: var(--sofa-color-primary);
 }
 
+/* 焦点加粗沿现有边框内侧绘制，避免改变控件尺寸。 */
 .sofa-input-wrapper:focus-within {
-  border-color: var(--sofa-color-primary);
-  box-shadow: 0 0 0 3px var(--sofa-color-primary-1);
+  border-color: var(--sofa-input-focus-color);
+  box-shadow: inset 0 0 0 1px var(--sofa-input-focus-color);
 }
 
 .sofa-input-wrapper.sofa-input-error {
-  border-color: var(--sofa-color-error);
-}
-
-.sofa-input-wrapper.sofa-input-error:focus-within {
-  box-shadow: 0 0 0 3px var(--sofa-color-error-bg);
+  --sofa-input-focus-color: var(--sofa-color-error);
+  border-color: var(--sofa-input-focus-color);
 }
 
 .sofa-input-wrapper.sofa-input-warning {
-  border-color: var(--sofa-color-warning);
-}
-
-.sofa-input-wrapper.sofa-input-warning:focus-within {
-  box-shadow: 0 0 0 3px var(--sofa-color-warning-bg);
+  --sofa-input-focus-color: var(--sofa-color-warning);
+  border-color: var(--sofa-input-focus-color);
 }
 
 .sofa-input-md {
@@ -139,7 +135,7 @@
 .sofa-textarea:focus {
   outline: none;
   border-color: var(--sofa-color-primary);
-  box-shadow: 0 0 0 3px var(--sofa-color-primary-1);
+  box-shadow: inset 0 0 0 1px var(--sofa-color-primary);
 }
 
 .sofa-textarea::placeholder {

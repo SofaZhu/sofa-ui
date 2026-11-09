@@ -115,7 +115,8 @@
   max-height: 260px;
   display: flex;
   flex-direction: column;
-  animation-name: sofa-scale-in;
+  box-sizing: border-box;
+  animation-name: sofa-fade-in;
 }
 
 .sofa-select-search {
@@ -133,6 +134,7 @@
 
 .sofa-select-search-input {
   flex: 1;
+  min-width: 0;
   border: none;
   outline: none;
   background: transparent;

@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import { fireEvent, render, screen } from '@testing-library/react'
+import { Select } from '@/components/select/select'
 import { Tooltip } from '@/components/tooltip/tooltip'
 
 describe('浮层定位', () => {
@@ -59,5 +60,21 @@ describe('浮层定位', () => {
     fireEvent.keyDown(button, { key: 'Escape' })
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
     expect(button).toHaveAttribute('aria-describedby', 'existing')
+  })
+
+  it('等宽选择面板在视口边缘保留锚点对齐', () => {
+    const measure = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function (this: HTMLElement) {
+      return this.classList.contains('sofa-select-anchor')
+        ? new DOMRect(3, 100, 240, 32)
+        : new DOMRect(0, 0, 240, 80)
+    })
+
+    try {
+      render(<Select options={[{ value: 'a', label: '选项' }]} />)
+      fireEvent.click(screen.getByRole('combobox'))
+      expect(screen.getByRole('listbox')).toHaveStyle({ left: '3px', width: '240px' })
+    } finally {
+      measure.mockRestore()
+    }
   })
 })

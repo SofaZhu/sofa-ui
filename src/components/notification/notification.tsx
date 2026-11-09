@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { className } from '@/utils/classNames'
 import { Icon, type IconType } from '../icon/icon'
@@ -29,10 +28,14 @@ export interface NotificationOptions {
   footer?: React.ReactNode
 }
 
+type NotificationPlacement = NonNullable<NotificationOptions['placement']>
+
 interface NotificationItem extends NotificationOptions {
   id: number
   type: NotificationType
+  placement: NotificationPlacement
   leaving?: boolean
+  timer?: ReturnType<typeof setTimeout>
 }
 
 const TYPE_ICON: Record<NotificationType, IconType> = {
@@ -42,51 +45,55 @@ const TYPE_ICON: Record<NotificationType, IconType> = {
   info: 'info-circle'
 }
 
+const PLACEMENTS: NotificationPlacement[] = ['topRight', 'topLeft', 'bottomRight', 'bottomLeft']
+const EXIT_DURATION = 220
+const items = new Map<number, NotificationItem>()
+
 let notificationContainer: HTMLDivElement | null = null
 let notificationRoot: Root | null = null
 let notificationId = 0
-let items: NotificationItem[] = []
-let placement: NotificationItem['placement'] = 'topRight'
 
-function ensureContainer(): HTMLDivElement {
-  if (!notificationContainer) {
+function renderNotifications() {
+  if (!notificationRoot) {
     notificationContainer = document.createElement('div')
     document.body.appendChild(notificationContainer)
     notificationRoot = createRoot(notificationContainer)
-    notificationRoot.render(<NotificationList />)
   }
-  return notificationContainer
+
+  // 每次新增或关闭都提交独立快照，连续调用时以最后一次提交为准。
+  notificationRoot.render(<NotificationList items={Array.from(items.values()).reverse()} />)
 }
 
-function NotificationList() {
-  const [, force] = useState(0)
-  /** 通知项移除：播放退出动画后真正卸载 */
-  const dismiss = (id: number, immediate = false) => {
-    if (immediate) {
-      items = items.filter((n) => n.id !== id)
-    } else {
-      items = items.map((n) => (n.id === id ? { ...n, leaving: true } : n))
-      force((c) => c + 1)
-      setTimeout(() => {
-        items = items.filter((n) => n.id !== id)
-        force((c) => c + 1)
-        if (items.length === 0) destroy()
-      }, 220)
-    }
-    force((c) => c + 1)
-  }
+function dismiss(id: number) {
+  const item = items.get(id)
+  if (!item || item.leaving) return
 
-  return (
-    <div className={className('sofa-notification-container', `sofa-notification-${placement}`)}>
-      {items.map((item) => {
-        const target = items.find((n) => n.id === item.id)
-        return (
+  clearTimeout(item.timer)
+  const timer = setTimeout(() => {
+    items.delete(id)
+    if (items.size === 0) destroy()
+    else renderNotifications()
+    item.onClose?.()
+  }, EXIT_DURATION)
+
+  items.set(id, { ...item, leaving: true, timer })
+  renderNotifications()
+}
+
+function NotificationList({ items }: { items: NotificationItem[] }) {
+  return PLACEMENTS.map((placement) => {
+    const stack = items.filter((item) => item.placement === placement)
+    if (stack.length === 0) return null
+
+    return (
+      <div key={placement} className={className('sofa-notification-container', `sofa-notification-${placement}`)}>
+        {stack.map((item) => (
           <div
             key={item.id}
             className={className(
               'sofa-notification',
               `sofa-notification-${item.type}`,
-              target?.leaving && 'sofa-notification-leaving'
+              item.leaving && 'sofa-notification-leaving'
             )}
             role="alert"
           >
@@ -107,20 +114,23 @@ function NotificationList() {
                 type="button"
                 className="sofa-notification-close"
                 aria-label="关闭通知"
+                disabled={item.leaving}
                 onClick={() => dismiss(item.id)}
               >
                 <Icon type="close" size={13} />
               </button>
             )}
           </div>
-        )
-      })}
-    </div>
-  )
+        ))}
+      </div>
+    )
+  })
 }
 
-/** 全部通知关闭后卸载容器 */
+/** 清空通知并取消所有未执行的自动关闭及退出计时。 */
 function destroy() {
+  items.forEach((item) => clearTimeout(item.timer))
+  items.clear()
   notificationRoot?.unmount()
   notificationContainer?.remove()
   notificationContainer = null
@@ -128,27 +138,11 @@ function destroy() {
 }
 
 function show(type: NotificationType, options: NotificationOptions): void {
-  const { duration = 4500, placement: p = 'topRight', onClose, ...rest } = options
-  placement = p
+  const { duration = 4500, placement = 'topRight', ...rest } = options
   const id = ++notificationId
-  // 最新通知排在最上方
-  items.unshift({ id, type, ...rest })
-  ensureContainer()
-  if (duration > 0) {
-    setTimeout(() => {
-      const item = items.find((n) => n.id === id)
-      if (item) {
-        item.leaving = true
-        setTimeout(() => {
-          items = items.filter((n) => n.id !== id)
-          onClose?.()
-          if (items.length === 0) destroy()
-          else notificationRoot?.render(<NotificationList />)
-        }, 220)
-        notificationRoot?.render(<NotificationList />)
-      }
-    }, duration)
-  }
+  const timer = duration > 0 ? setTimeout(() => dismiss(id), duration) : undefined
+  items.set(id, { ...rest, id, type, placement, timer })
+  renderNotifications()
 }
 
 export const notification = {

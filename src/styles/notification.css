@@ -1,35 +1,42 @@
 /* Notification 通知 */
 .sofa-notification-container {
   position: fixed;
-  top: 16px;
-  right: 16px;
+  top: 8px;
+  right: 8px;
   z-index: var(--sofa-zindex-message);
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 360px;
-  max-width: calc(100vw - 32px);
+  width: 376px;
+  max-width: calc(100vw - 16px);
+  max-height: calc(100vh - 16px);
+  max-height: calc(100dvh - 16px);
+  box-sizing: border-box;
+  padding: 8px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .sofa-notification-topLeft {
-  left: 16px;
+  left: 8px;
   right: auto;
 }
 
 .sofa-notification-bottomRight {
   top: auto;
-  bottom: 16px;
+  bottom: 8px;
 }
 
 .sofa-notification-bottomLeft {
   top: auto;
-  bottom: 16px;
-  left: 16px;
+  bottom: 8px;
+  left: 8px;
   right: auto;
 }
 
 .sofa-notification {
   display: flex;
+  flex-shrink: 0;
   gap: 12px;
   padding: 14px 16px;
   background: var(--sofa-bg-container);
@@ -68,6 +75,7 @@
 .sofa-notification-main {
   flex: 1;
   min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .sofa-notification-title {

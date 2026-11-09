@@ -102,7 +102,7 @@ export function General() {
         <p className="demo-text">上方是左对齐带标题的分割线。</p>
         <Divider orientation="center">居中标题</Divider>
         <p className="demo-text">上方是居中对齐带标题的分割线。</p>
-        <Divider dashed>虚线分割线</Divider>
+        <Divider orientation="right" dashed>右对齐虚线</Divider>
       </Demo>
 
       <h2 className="page-title">布局</h2>
@@ -175,7 +175,7 @@ function SpaceDemo() {
   const sizeLabel = { small: '小', middle: '中', large: '大' }[size]
   return (
     <div className="space-demo">
-      <Space size={size} split={<Divider type="vertical" />} wrap>
+      <Space size={size} split={<Divider vertical />} wrap>
         <Button type="primary" onClick={() => setSize(size === 'small' ? 'middle' : size === 'middle' ? 'large' : 'small')}>
           点击切换间距（当前：{sizeLabel}）
         </Button>
