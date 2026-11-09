@@ -43,11 +43,17 @@
   border: 1px solid var(--sofa-border-color);
   border-radius: var(--sofa-radius-md);
   box-shadow: var(--sofa-shadow-md);
-  animation: sofa-slide-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: sofa-notification-enter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.2s ease;
 }
 
 .sofa-notification-leaving {
-  animation: sofa-slide-right 0.2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes sofa-notification-enter {
+  from { transform: translateX(10px); }
+  to { transform: translateX(0); }
 }
 
 .sofa-notification-icon {

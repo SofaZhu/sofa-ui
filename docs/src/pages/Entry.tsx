@@ -19,6 +19,13 @@ const REGION_OPTIONS = [
   { label: '安徽', value: 'anhui', disabled: true, children: [{ label: '合肥', value: 'hefei' }] }
 ]
 
+const RADIO_PERIOD_OPTIONS = [
+  { label: '日', value: 'day' },
+  { label: '周', value: 'week' },
+  { label: '月', value: 'month' },
+  { label: '年', value: 'year', disabled: true }
+]
+
 export function Entry() {
   const [selectValue, setSelectValue] = useState<string | undefined>('react')
   const [multiValue, setMultiValue] = useState<Array<string | number>>(['react'])
@@ -116,16 +123,6 @@ export function Entry() {
         <Divider dashed />
         <div className="demo-text">单选按钮组：</div>
         <Space direction="vertical" size="middle">
-          <RadioGroup
-            optionType="button"
-            defaultValue="b"
-            options={[
-              { label: '日', value: 'day' },
-              { label: '周', value: 'week' },
-              { label: '月', value: 'month' },
-              { label: '年', value: 'year', disabled: true }
-            ]}
-          />
           {([
             { size: 'small', label: '小号' },
             { size: 'default', label: '中号' },
@@ -137,11 +134,7 @@ export function Entry() {
                 optionType="button"
                 size={size}
                 defaultValue="day"
-                options={[
-                  { label: '日', value: 'day' },
-                  { label: '周', value: 'week' },
-                  { label: '月', value: 'month' }
-                ]}
+                options={RADIO_PERIOD_OPTIONS}
               />
             </Space>
           ))}

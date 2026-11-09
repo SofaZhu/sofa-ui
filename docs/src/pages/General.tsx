@@ -175,16 +175,13 @@ function SpaceDemo() {
   const sizeLabel = { small: '小', middle: '中', large: '大' }[size]
   return (
     <div className="space-demo">
+      <Button type="primary" onClick={() => setSize(size === 'small' ? 'middle' : size === 'middle' ? 'large' : 'small')}>
+        切换间距（当前：{sizeLabel}）
+      </Button>
       <Space size={size} split={<Divider vertical />} wrap>
-        <Button type="primary" onClick={() => setSize(size === 'small' ? 'middle' : size === 'middle' ? 'large' : 'small')}>
-          点击切换间距（当前：{sizeLabel}）
-        </Button>
-        <Button onClick={() => message.info(`Space 当前间距：${sizeLabel}（small=8 / middle=16 / large=24）`)}>
-          间距布局
-        </Button>
-        <Button type="dashed" onClick={() => message.success('Space 组件：统一管理子元素间距与分隔符')}>
-          Space 组件
-        </Button>
+        <Tag>示例项 A</Tag>
+        <Tag>示例项 B</Tag>
+        <Tag>示例项 C</Tag>
       </Space>
     </div>
   )
