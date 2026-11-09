@@ -2,6 +2,8 @@
 
 一款开源的 **React 组件库**。
 
+[在线演示（GitHub Pages）](https://sofazhu.github.io/sofa-ui/) · [组件与主题 API 文档](docs/api/README.md)
+
 **核心设计理念：「单一主色 · 全色系自动调配」**
 
 - 主色默认 `#8A2BE2`（蓝紫），其余所有默认色调——色阶、悬浮态、按下态、浅背景、边框——均由主色经颜色算法自动调配生成
@@ -59,27 +61,13 @@ npm run typecheck  # 类型检查
 
 文档站启动后访问 `http://localhost:5173`：右上角可直接切换主色与明暗模式，实时观察全组件色彩联动。
 
-## 组件清单
+## 组件文档
 
-### 已实现（v0.1）
+[API 索引](docs/api/README.md)按主题与通用、布局、导航、数据录入、浮层与反馈、数据展示分类。每份模块文档包含包根导入示例、运行时方法、属性、回调类型和默认值。
 
-| 分类 | 组件 |
-| --- | --- |
-| 通用 | Button（5 类型 + 波纹）、Icon、Tag（可关闭/可勾选）、Space、Divider |
-| 布局 | Row / Col（24 栅格 + 6 断点响应式） |
-| 数据录入 | Input（前缀后缀/清空/计数）、Textarea（autosize）、Select（单选/多选/搜索）、Checkbox/Group（半选/全选）、Radio/Group（按钮形态）、Switch（文案/加载）、Slider（范围/刻度）、Rate（半星） |
-| 数据展示 | Badge（角标/状态点）、Alert、Tabs（line/card/可关闭）、Card、Breadcrumb、Pagination（跳页/每页条数）、Progress（直线/圆环/仪表盘）、Spin、Empty |
-| 浮层与反馈 | Tooltip（12 方向自动翻转）、Popover、Popconfirm、Modal（含命令式 confirm）、Message（5 类型）、Notification |
+## 演示站发布
 
-### 规划中（后续版本）
-
-| 分类 | 组件 |
-| --- | --- |
-| 数据录入 | DatePicker / TimePicker（日历面板）、Cascader、TreeSelect、Transfer、Upload（拖拽/多文件）、AutoComplete、Mentions、Form（校验/布局）、ColorPicker |
-| 数据展示 | Table（排序/筛选/固定列）、Tree（选择/拖拽）、Calendar、Carousel、Collapse、Descriptions、List、Statistic、Timeline、Skeleton、Avatar、Image（预览）、Result |
-| 导航 | Menu（横向/纵向/折叠）、Steps、Dropdown、Affix（固定）、Anchor（锚点）、BackTop（返回顶部） |
-| 布局 | Layout（Header/Aside/Footer）、Container |
-| 通用 | Typography（标题/段落/文本）、Segmented、QRCode |
+演示站使用 GitHub Pages。首次启用时，在[仓库 Pages 设置](https://github.com/SofaZhu/sofa-ui/settings/pages)中将发布来源设为 **GitHub Actions**。发布流程会在更新 `main` 后构建并部署，也可以从 Actions 页面手动运行「发布演示站到 GitHub Pages」。
 
 ## 设计令牌
 

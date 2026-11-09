@@ -50,6 +50,14 @@ export function Home({ primary, onQuickStart }: { primary: string; onQuickStart?
           >
             GitHub
           </a>
+          <a
+            className="sofa-btn sofa-btn-default sofa-btn-lg"
+            href="https://github.com/SofaZhu/sofa-ui/blob/main/docs/api/README.md"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            API 文档
+          </a>
         </div>
       </div>
 

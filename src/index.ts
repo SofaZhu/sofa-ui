@@ -7,6 +7,7 @@
 export {
   setPrimaryColor,
   setDarkMode,
+  isDarkMode,
   toggleDarkMode,
   setTheme,
   getAppliedTokens,
@@ -17,7 +18,7 @@ export {
   DEFAULT_SEMANTIC_COLORS,
   DEFAULT_NEUTRAL_COLORS
 } from './theme'
-export type { ThemeTokenInput } from './theme/tokens'
+export type { ThemeTokenInput, SemanticColorKey, NeutralColorKey } from './theme/tokens'
 
 // 通用
 export { default as Button } from './components/button/button'
@@ -27,13 +28,13 @@ export type { IconProps, IconType } from './components/icon/icon'
 export { default as Tag } from './components/tag/tag'
 export type { TagProps, TagColor } from './components/tag/tag'
 export { default as Space } from './components/space/space'
-export type { SpaceProps, SpaceSize } from './components/space/space'
+export type { SpaceProps, SpaceSize, SpaceDirection } from './components/space/space'
 export { default as Divider } from './components/divider/divider'
 export type { DividerProps } from './components/divider/divider'
 
 // 布局
 export { default as Row } from './components/grid/row'
-export type { RowProps, Gutter } from './components/grid/row'
+export type { RowProps, Gutter, GutterValue, Breakpoint } from './components/grid/row'
 export { default as Col } from './components/grid/col'
 export type { ColProps } from './components/grid/col'
 export { default as Layout, Header as LayoutHeader, Footer as LayoutFooter, Content as LayoutContent, Sider as LayoutSider } from './components/layout/layout'
@@ -48,7 +49,7 @@ export { default as Pagination } from './components/pagination/pagination'
 export type { PaginationProps } from './components/pagination/pagination'
 export { default as BackTop } from './components/back-top/back-top'
 export type { BackTopProps } from './components/back-top/back-top'
-export { default as Anchor } from './components/anchor/anchor'
+export { default as Anchor, AnchorLink } from './components/anchor/anchor'
 export type { AnchorProps, AnchorLinkProps } from './components/anchor/anchor'
 export { default as Menu, MenuItem, SubMenu, MenuItemGroup } from './components/menu/menu'
 export type { MenuProps, MenuItemProps, SubMenuProps, MenuItemGroupProps } from './components/menu/menu'
@@ -71,7 +72,7 @@ export type { QRCodeProps, QRCodeLevel, QRCodeImageOptions } from './components/
 
 // 数据录入
 export { default as Input } from './components/input/input'
-export type { InputProps } from './components/input/input'
+export type { InputProps, InputSize } from './components/input/input'
 export { default as Textarea } from './components/input/textarea'
 export type { TextareaProps } from './components/input/textarea'
 export { default as Select } from './components/select/select'
@@ -91,7 +92,7 @@ export type { TreeSelectProps } from './components/tree-select/tree-select'
 export { default as Cascader } from './components/cascader/cascader'
 export type { CascaderProps, CascaderOption } from './components/cascader/cascader'
 export { default as Tree } from './components/tree/tree'
-export type { TreeProps, TreeNode, TreeSelectInfo, TreeCheckInfo, TreeDropInfo } from './components/tree/tree'
+export type { TreeProps, TreeNode, TreeSelectInfo, TreeCheckInfo, TreeDropInfo, TreeDropPosition } from './components/tree/tree'
 
 // 浮层
 export { default as Tooltip } from './components/tooltip/tooltip'
@@ -110,8 +111,8 @@ export { default as Upload } from './components/upload/upload'
 export type { UploadProps, UploadFile } from './components/upload/upload'
 
 // 数据展示
-export { default as Avatar } from './components/avatar/avatar'
-export type { AvatarProps } from './components/avatar/avatar'
+export { default as Avatar, AvatarGroup } from './components/avatar/avatar'
+export type { AvatarProps, AvatarGroupProps, AvatarSize } from './components/avatar/avatar'
 export { default as Badge } from './components/badge/badge'
 export type { BadgeProps, BadgeStatus } from './components/badge/badge'
 export { default as Alert } from './components/alert/alert'
@@ -137,6 +138,54 @@ export type {
   TableSorter,
   SortOrder
 } from './components/table/table'
+
+// 扩展数据录入
+export { default as DatePicker } from './components/date-picker/date-picker'
+export type { DatePickerProps } from './components/date-picker/date-picker'
+export { default as TimePicker } from './components/time-picker/time-picker'
+export type { TimePickerProps } from './components/time-picker/time-picker'
+export { default as Form, useForm } from './components/form/form'
+export type {
+  FieldPath,
+  FormInstance,
+  FormItemProps,
+  FormLayout,
+  FormProps,
+  FormRule,
+  FormSize,
+  FormValidateResult,
+  FormValidateTrigger
+} from './components/form/form'
+export { default as Mentions, getMentions } from './components/mentions/mentions'
+export type { MentionOption, MentionsProps } from './components/mentions/mentions'
+
+// 扩展数据展示与反馈
+export { default as Calendar } from './components/calendar/calendar'
+export type { CalendarMode, CalendarProps } from './components/calendar/calendar'
+export { default as Carousel } from './components/carousel/carousel'
+export type { CarouselProps } from './components/carousel/carousel'
+export { default as Collapse } from './components/collapse/collapse'
+export type { CollapseItem, CollapseProps } from './components/collapse/collapse'
+export { default as Descriptions } from './components/descriptions/descriptions'
+export type { DescriptionsItem, DescriptionsProps } from './components/descriptions/descriptions'
+export { default as Image } from './components/image/image'
+export type { ImageProps, ImageStatus } from './components/image/image'
+export { default as List, ListItem } from './components/list/list'
+export type { ListItemProps, ListProps } from './components/list/list'
+export { default as Result } from './components/result/result'
+export type { ResultProps, ResultStatus } from './components/result/result'
+export { default as Skeleton } from './components/skeleton/skeleton'
+export type {
+  SkeletonAvatarProps,
+  SkeletonImageProps,
+  SkeletonParagraphProps,
+  SkeletonProps,
+  SkeletonTitleProps
+} from './components/skeleton/skeleton'
+export { default as Statistic, formatStatisticValue } from './components/statistic/statistic'
+export type { StatisticProps } from './components/statistic/statistic'
+export { default as Timeline } from './components/timeline/timeline'
+export type { TimelineItem, TimelineProps } from './components/timeline/timeline'
 
 // 弹层定位类型
 export type { PopPlacement, PopTrigger } from './hooks/usePop'

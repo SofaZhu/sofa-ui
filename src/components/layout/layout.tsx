@@ -163,7 +163,7 @@ export function Layout({ hasSider = false, className: cls, children, ...rest }: 
 }
 
 const LayoutNamespace = Object.assign(
-  {},
+  Layout,
   { Header, Sider, Content, Footer }
 )
 

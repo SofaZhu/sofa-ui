@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Layout, Header, Sider, Content, Footer } from '@/components/layout/layout'
+import { Layout, LayoutHeader as Header, LayoutSider as Sider, LayoutContent as Content, LayoutFooter as Footer } from '@/index'
 
 describe('Layout 布局容器', () => {
   it('渲染 Header/Content/Footer 类名', () => {
@@ -12,6 +12,10 @@ describe('Layout 布局容器', () => {
         <Footer>脚</Footer>
       </Layout>
     )
+    expect(Layout.Header).toBe(Header)
+    expect(Layout.Sider).toBe(Sider)
+    expect(Layout.Content).toBe(Content)
+    expect(Layout.Footer).toBe(Footer)
     expect(container.querySelector('.sofa-layout-header')).toBeTruthy()
     expect(container.querySelector('.sofa-layout-content')).toBeTruthy()
     expect(container.querySelector('.sofa-layout-footer')).toBeTruthy()
