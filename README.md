@@ -65,9 +65,6 @@ npm run typecheck  # 类型检查
 
 [API 索引](docs/api/README.md)按主题与通用、布局、导航、数据录入、浮层与反馈、数据展示分类。每份模块文档包含包根导入示例、运行时方法、属性、回调类型和默认值。在线演示中可直接展开各模块下的 API 文档，也可从在线总文档按分类查看。
 
-## 演示站发布
-
-演示站使用 GitHub Pages。首次启用时，在[仓库 Pages 设置](https://github.com/SofaZhu/sofa-ui/settings/pages)中将发布来源设为 **GitHub Actions**。发布流程会在更新 `main` 后构建并部署，也可以从 Actions 页面手动运行「发布演示站到 GitHub Pages」。
 
 ## 设计令牌
 
