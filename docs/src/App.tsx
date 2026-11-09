@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useLayoutEffect, useState, useSyncExternalStore } from 'react'
 import { setPrimaryColor, setDarkMode, generateColorPalette } from 'sofa-ui'
 import { Home } from './pages/Home'
 import { General } from './pages/General'
 import { Entry } from './pages/Entry'
 import { Overlay } from './pages/Overlay'
 import { Display } from './pages/Display'
+import { ApiDetails, ApiPage } from './api/api-reference'
 
 /**
  * 演示用代码展示块
@@ -24,14 +25,17 @@ export function Demo({
   title,
   desc,
   code,
+  api,
   children
 }: {
   title: string
   desc?: string
   code?: string
+  api?: string | readonly string[]
   children: React.ReactNode
 }) {
   const [showCode, setShowCode] = useState(false)
+  const apiIds = typeof api === 'string' ? [api] : api
   return (
     <section className="demo-section">
       <h3 className="demo-title">{title}</h3>
@@ -45,6 +49,7 @@ export function Demo({
           {showCode && <CodeBlock code={code} />}
         </>
       )}
+      {apiIds?.map((id) => <ApiDetails key={id} id={id} />)}
     </section>
   )
 }
@@ -54,13 +59,29 @@ const NAV = [
   { key: 'general', label: '通用' },
   { key: 'entry', label: '数据录入' },
   { key: 'overlay', label: '浮层与反馈' },
-  { key: 'display', label: '数据展示' }
+  { key: 'display', label: '数据展示' },
+  { key: 'api', label: 'API 总文档' }
 ]
 
 const PRESET_COLORS = ['#8A2BE2', '#1677FF', '#13C2C2', '#52C41A', '#FA8C16', '#EB2F96', '#000000']
 
+function subscribeToHash(onChange: () => void) {
+  window.addEventListener('hashchange', onChange)
+  return () => window.removeEventListener('hashchange', onChange)
+}
+
+function readHash() {
+  return window.location.hash
+}
+
 export default function App() {
-  const [page, setPage] = useState('home')
+  const hash = useSyncExternalStore(subscribeToHash, readHash)
+  const [route, module] = hash.slice(1).split('/')
+  const page = NAV.some((item) => item.key === route) ? route : 'home'
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [page, module])
   const [dark, setDark] = useState(() => document.documentElement.getAttribute('data-theme') === 'dark')
   const [primary, setPrimary] = useState('#8A2BE2')
 
@@ -127,7 +148,7 @@ export default function App() {
               className="app-nav-item"
               data-active={page === item.key}
               aria-current={page === item.key ? 'page' : undefined}
-              onClick={() => setPage(item.key)}
+              onClick={() => { window.location.hash = item.key }}
             >
               {item.label}
             </button>
@@ -145,11 +166,12 @@ export default function App() {
         </aside>
 
         <main className="app-content">
-          {page === 'home' && <Home primary={primary} onQuickStart={() => setPage('entry')} />}
+          {page === 'home' && <Home primary={primary} onQuickStart={() => { window.location.hash = 'entry' }} />}
           {page === 'general' && <General />}
           {page === 'entry' && <Entry />}
           {page === 'overlay' && <Overlay />}
           {page === 'display' && <Display />}
+          {page === 'api' && <ApiPage id={module} />}
         </main>
       </div>
     </div>

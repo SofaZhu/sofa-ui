@@ -1,6 +1,7 @@
 import { Button, Icon, Tag, Space, Divider, Row, Col, Switch, message } from 'sofa-ui'
 import { useState } from 'react'
 import { Demo } from '../App'
+import { MoreApi } from '../api/api-reference'
 
 export function General() {
   const [checkable, setCheckable] = useState(true)
@@ -12,6 +13,7 @@ export function General() {
 
       <Demo
         title="Button 按钮"
+        api="button"
         desc="五种类型（primary/default/dashed/text/link）+ 危险/幽灵/圆角/圆形/加载态/点击波纹，尺寸 small/default/large。"
         code={`<Button type="primary">主要按钮</Button>
 <Button>默认按钮</Button>
@@ -52,6 +54,7 @@ export function General() {
 
       <Demo
         title="Tag 标签"
+        api="tag"
         desc="预设语义色 + 自定义色值 + 可关闭 + 可勾选。"
         code={`<Tag>默认标签</Tag>
 <Tag color="success">成功</Tag>
@@ -95,6 +98,7 @@ export function General() {
 
       <Demo
         title="Space / Divider"
+        api={['space', 'divider']}
         desc="Space 统一间距（支持 split 分隔符与动态切换），Divider 水平/垂直/带标题三种形态。"
       >
         <SpaceDemo />
@@ -109,6 +113,7 @@ export function General() {
 
       <Demo
         title="Row / Col 栅格"
+        api="grid"
         desc="24 栅格体系：span/offset/order，支持 xs~xxl 六档响应式断点与响应式 gutter。"
         code={`<Row gutter={[16, 16]}>
   <Col span={8}><div className="grid-box">8</div></Col>
@@ -156,7 +161,7 @@ export function General() {
         </Row>
       </Demo>
 
-      <Demo title="Switch 开关" desc="支持加载态与开/关文案，主色即开关底色。">
+      <Demo title="Switch 开关" api="switch" desc="支持加载态与开/关文案，主色即开关底色。">
         <Space size="middle" wrap>
           <Switch />
           <Switch defaultChecked />
@@ -165,6 +170,7 @@ export function General() {
           <Switch defaultChecked disabled />
         </Space>
       </Demo>
+      <MoreApi ids={['icon', 'segmented', 'qrcode', 'layout', 'container']} />
     </div>
   )
 }

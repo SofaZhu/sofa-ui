@@ -1,9 +1,10 @@
 import {
   Input, Textarea, Select, Cascader, CheckboxGroup, RadioGroup,
-  Switch, Slider, Rate, message, Divider, Icon, Space, Upload
+  Slider, Rate, message, Divider, Icon, Space, Upload
 } from 'sofa-ui'
 import { useState } from 'react'
 import { Demo } from '../App'
+import { MoreApi } from '../api/api-reference'
 
 const FRAMEWORK_OPTIONS = [
   { label: 'React', value: 'react' },
@@ -37,6 +38,7 @@ export function Entry() {
 
       <Demo
         title="Input 输入框"
+        api="input"
         desc="前后缀插槽、一键清空、字数统计、错误/警告状态，三种尺寸。"
         code={`<Input placeholder="请输入用户名" prefix={<Icon type="user" size={14} />} allowClear />
 <Input placeholder="带后缀" suffix=".com" />
@@ -53,7 +55,7 @@ export function Entry() {
         </Space>
       </Demo>
 
-      <Demo title="Textarea 文本域" desc="自动高度（autosize）与字数统计。">
+      <Demo title="Textarea 文本域" api="input" desc="自动高度（autosize）与字数统计。">
         <Space direction="vertical" size="middle" style={{ width: 380 }}>
           <Textarea placeholder="固定高度文本域" rows={3} />
           <Textarea
@@ -68,6 +70,7 @@ export function Entry() {
 
       <Demo
         title="Select 选择器"
+        api="select"
         desc="单选/多选、搜索过滤、清空、键盘上下键导航 + 回车确认。"
         code={`<Select
   options={[{ label: 'React', value: 'react' }, ...]}
@@ -100,6 +103,7 @@ export function Entry() {
 
       <Demo
         title="Cascader 级联选择"
+        api="cascader"
         desc="展开省份选择城市，也可搜索省份或城市名称。禁用分支不可选。"
       >
         <Cascader options={REGION_OPTIONS} searchable clearable placeholder="选择省份与城市" />
@@ -107,6 +111,7 @@ export function Entry() {
 
       <Demo
         title="Checkbox / Radio"
+        api={['checkbox', 'radio']}
         desc="复选框含半选与全选联动，单选框支持按钮形态。"
       >
         <div className="demo-text">复选框组（含全选）：</div>
@@ -143,6 +148,7 @@ export function Entry() {
 
       <Demo
         title="Slider 滑块"
+        api="slider"
         desc="单值/范围双模式、步进、刻度标记、拖动气泡。"
         code={`<Slider defaultValue={40} marks={{ 0: '0', 50: '50', 100: '100' }} />
 <Slider range defaultValue={[20, 80]} />`}
@@ -156,6 +162,7 @@ export function Entry() {
 
       <Demo
         title="Rate 评分"
+        api="rate"
         desc="半星、清除、自定义字符。"
         code={`<Rate defaultValue={3} />
 <Rate allowHalf defaultValue={3.5} onChange={setRate} />`}
@@ -170,6 +177,7 @@ export function Entry() {
 
       <Demo
         title="Upload 上传"
+        api="upload"
         desc="本地回传（不传 action 时仅展示列表）、拖拽模式、缩略图、限数与失败重试。"
         code={`<Upload listType="picture" multiple maxCount={5} />`}
       >
@@ -179,6 +187,7 @@ export function Entry() {
           <Upload listType="picture" multiple maxCount={5} />
         </Space>
       </Demo>
+      <MoreApi ids={['tree-select', 'date-picker', 'time-picker', 'form', 'mentions']} />
     </div>
   )
 }

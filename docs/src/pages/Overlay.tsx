@@ -4,6 +4,7 @@ import {
 } from 'sofa-ui'
 import { useState } from 'react'
 import { Demo } from '../App'
+import { MoreApi } from '../api/api-reference'
 
 export function Overlay() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -24,6 +25,7 @@ export function Overlay() {
 
       <Demo
         title="Tooltip 文字提示"
+        api="tooltip"
         desc="12 方向自动翻转避让视口，hover 延迟进出，支持受控。"
         code={`<Tooltip title="提示文字" placement="top">
   <Button>悬浮我</Button>
@@ -40,6 +42,7 @@ export function Overlay() {
 
       <Demo
         title="Popover 气泡卡片"
+        api="popover"
         desc="click 触发，可承载交互内容，点击外部或 ESC 关闭。"
       >
         <Space size="middle" wrap>
@@ -68,6 +71,7 @@ export function Overlay() {
 
       <Demo
         title="Popconfirm 气泡确认框"
+        api="popover"
         desc="危险操作二次确认。"
         code={`<Popconfirm title="确定要删除这条数据吗？" danger
   onConfirm={() => message.success('已删除')}>
@@ -95,6 +99,7 @@ export function Overlay() {
 
       <Demo
         title="Modal 对话框"
+        api="modal"
         desc="遮罩/ESC/点击外部关闭、确认按钮加载态、命令式 confirm 方法。"
         code={`<Modal open={open} title="编辑信息" onOk={handleOk} confirmLoading={loading}
   onCancel={() => setOpen(false)}>
@@ -110,7 +115,9 @@ confirm({ title: '确认删除？', type: 'warning', onOk: () => {} })`}
                 title: '确认删除该记录？',
                 content: '删除后数据不可恢复。',
                 type: 'warning',
-                onOk: () => message.success('已删除')
+                onOk: () => {
+                  message.success('已删除')
+                }
               })
             }
           >
@@ -148,6 +155,7 @@ confirm({ title: '确认删除？', type: 'warning', onOk: () => {} })`}
 
       <Demo
         title="Message 全局消息"
+        api="message"
         desc="命令式调用，顶部居中出现，自动消失；支持 loading 与手动关闭。"
         code={`message.success('操作成功')
 message.error('保存失败')
@@ -171,6 +179,7 @@ message.loading('处理中...', { duration: 0 })`}
 
       <Demo
         title="Notification 通知"
+        api="notification"
         desc="右上角滑入，支持标题 + 描述 + 自定义关闭时机。"
       >
         <Space size="middle" wrap>
@@ -219,6 +228,7 @@ message.loading('处理中...', { duration: 0 })`}
         更多浮层能力：<Icon type="info" size={13} /> Modal 支持 destroyOnClose / lockScroll，
         Tooltip 支持受控 open 与 disabled，全部浮层支持 12 方向定位。
       </div>
+      <MoreApi ids={['popup', 'result']} />
     </div>
   )
 }

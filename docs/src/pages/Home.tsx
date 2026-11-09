@@ -52,11 +52,9 @@ export function Home({ primary, onQuickStart }: { primary: string; onQuickStart?
           </a>
           <a
             className="sofa-btn sofa-btn-default sofa-btn-lg"
-            href="https://github.com/SofaZhu/sofa-ui/blob/main/docs/api/README.md"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#api"
           >
-            API 文档
+            API 总文档
           </a>
         </div>
       </div>
@@ -98,6 +96,7 @@ export function Home({ primary, onQuickStart }: { primary: string; onQuickStart?
 
       <Demo
         title="三种配色方式"
+        api="theme"
         desc="① CSS 变量覆盖（--sofa-color-primary 一处修改全局联动，其余色调由 color-mix 自动派生）；② 运行时 JS API；③ 构建时令牌生成。"
         code={CODE_USAGE}
       >

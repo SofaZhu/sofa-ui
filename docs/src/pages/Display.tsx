@@ -1,11 +1,12 @@
 import {
   Badge, Alert, Tabs, Card, Breadcrumb, Pagination, Progress, Spin, Empty,
-  Button, Space, Divider, Tag, Table, Text, Paragraph, Title
+  Button, Space, Divider, Tag, Table, Text, Paragraph, Title, type TableRecord
 } from 'sofa-ui'
 import { useState } from 'react'
 import { Demo } from '../App'
+import { MoreApi } from '../api/api-reference'
 
-interface MemberRecord {
+interface MemberRecord extends TableRecord {
   key: string
   name: string
   role: string
@@ -31,6 +32,7 @@ export function Display() {
 
       <Demo
         title="Badge 徽标"
+        api="badge"
         desc="数字角标 / 状态点 / 自定义颜色，支持 overflowCount 溢出折叠。"
         code={`<Badge count={5}><Avatar /></Badge>
 <Badge dot status="success" />
@@ -76,6 +78,7 @@ export function Display() {
 
       <Demo
         title="Alert 警告提示"
+        api="alert"
         desc="四种语义类型、标题/描述、可关闭、banner 通栏。"
         code={`<Alert type="success" title="操作成功" showIcon closable />
 <Alert type="warning" title="警告" description="详细描述..." />`}
@@ -90,6 +93,7 @@ export function Display() {
 
       <Demo
         title="Tabs 标签页"
+        api="tabs"
         desc="line / card 两种风格，可关闭、可禁用、懒渲染。"
         code={`<Tabs activeKey={active} onChange={setActive} items={[
   { key: '1', label: '标签一', children: <p>内容一</p> },
@@ -119,6 +123,7 @@ export function Display() {
 
       <Demo
         title="Card 卡片"
+        api="card"
         desc="标题/操作区/封面/底部，hover 抬升效果。"
       >
         <Space size="middle" wrap>
@@ -134,6 +139,7 @@ export function Display() {
 
       <Demo
         title="Breadcrumb 面包屑"
+        api="breadcrumb"
         desc="层级导航，自定义分隔符。"
         code={`<Breadcrumb items={[
   { title: '首页', href: '#' },
@@ -161,6 +167,7 @@ export function Display() {
 
       <Demo
         title="Pagination 分页器"
+        api="pagination"
         desc="页码省略、每页条数切换、快速跳转、总数展示。"
         code={`<Pagination total={200} current={page} showSizeChanger
   showQuickJumper showTotal={(t) => \`共 \${t} 条\`} />`}
@@ -179,6 +186,7 @@ export function Display() {
 
       <Demo
         title="Progress 进度条"
+        api="progress"
         desc="直线 / 圆环 / 仪表盘三种形态，成功/异常/警告状态。"
         code={`<Progress percentage={66} status="success" />
 <Progress type="circle" percentage={75} />
@@ -200,6 +208,7 @@ export function Display() {
 
       <Demo
         title="Spin 加载中"
+        api="spin"
         desc="包裹内容时显示遮罩层，支持全屏与文案。"
       >
         <Space size="large" wrap>
@@ -215,7 +224,7 @@ export function Display() {
         </Space>
       </Demo>
 
-      <Demo title="Empty 空状态" desc="自定义文案 / 插图 / 底部操作。">
+      <Demo title="Empty 空状态" api="empty" desc="自定义文案 / 插图 / 底部操作。">
         <Space size="large" wrap>
           <Empty />
           <Empty description="还没有任何数据">
@@ -226,6 +235,7 @@ export function Display() {
 
       <Demo
         title="Table 表格：展开行详情"
+        api="table"
         desc="点击行首箭头展开详情行，支持受控展开、行选择与分页。"
         code={`<Table
   columns={columns}
@@ -278,6 +288,7 @@ export function Display() {
 
       <Demo
         title="Typography 文本：多行省略与展开"
+        api="typography"
         desc="Paragraph 支持 rows 行数省略并可展开收起，Text 支持单行省略与复制。"
         code={`<Paragraph ellipsis={{ rows: 2, expandable: true }}>
   长文本内容...
@@ -298,6 +309,7 @@ export function Display() {
           <Title level={5} type="secondary">标题支持 level 1-5</Title>
         </div>
       </Demo>
+      <MoreApi ids={['anchor', 'back-top', 'dropdown', 'menu', 'avatar', 'calendar', 'carousel', 'collapse', 'descriptions', 'image', 'list', 'skeleton', 'statistic', 'timeline', 'tree']} />
     </div>
   )
 }

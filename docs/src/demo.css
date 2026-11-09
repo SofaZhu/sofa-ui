@@ -127,6 +127,7 @@
 .app-nav {
   position: sticky;
   top: 76px;
+  z-index: 1;
   align-self: flex-start;
   width: 200px;
   flex-shrink: 0;
@@ -524,4 +525,132 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
+}
+
+/* 演示区块内的 API 文档 */
+.api-details {
+  min-width: 0;
+  margin-top: 12px;
+  border: 1px solid var(--sofa-border-color);
+  border-radius: var(--sofa-radius-sm);
+}
+
+.api-details > summary {
+  padding: 10px 12px;
+  color: var(--sofa-text-primary);
+  font-size: var(--sofa-font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.api-details[open] > summary {
+  border-bottom: 1px solid var(--sofa-border-color);
+}
+
+.api-details-body {
+  padding: 12px;
+}
+
+.api-page,
+.api-markdown {
+  min-width: 0;
+  color: var(--sofa-text-primary);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.api-markdown {
+  font-size: var(--sofa-font-size-sm);
+}
+
+.api-markdown > * + * {
+  margin-top: 12px;
+}
+
+.api-markdown :is(h1, h2, h3, h4, h5, h6) {
+  line-height: 1.35;
+}
+
+.api-markdown :is(h2, h5) {
+  margin-top: 24px;
+  font-size: var(--sofa-font-size-md);
+}
+
+.api-markdown :is(h3, h6) {
+  font-size: var(--sofa-font-size-sm);
+}
+
+.api-markdown :is(ul, ol) {
+  padding-inline-start: 24px;
+}
+
+.api-markdown a,
+.api-page a,
+.api-standalone-link {
+  color: var(--sofa-text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.api-markdown a:hover,
+.api-page a:hover,
+.api-standalone-link:hover {
+  color: var(--sofa-color-primary);
+}
+
+.api-standalone-link,
+.api-loading {
+  font-size: var(--sofa-font-size-sm);
+}
+
+.api-standalone-link {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.api-markdown pre,
+.api-table-scroll {
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid var(--sofa-border-color);
+  border-radius: var(--sofa-radius-sm);
+}
+
+.api-markdown pre {
+  padding: 12px;
+  background: var(--sofa-fill-color-secondary);
+}
+
+.api-markdown :not(pre) > code {
+  padding: 1px 3px;
+  border-radius: var(--sofa-radius-xs);
+  background: var(--sofa-fill-color-secondary);
+}
+
+.api-markdown table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+
+.api-markdown :is(th, td) {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--sofa-border-color);
+  text-align: left;
+  vertical-align: top;
+}
+
+.api-markdown th {
+  background: var(--sofa-fill-color-secondary);
+  white-space: nowrap;
+}
+
+.api-markdown tr:last-child td {
+  border-bottom: 0;
+}
+
+.api-details > summary:focus-visible,
+.api-table-scroll:focus-visible {
+  outline: 2px solid var(--sofa-text-primary);
+  outline-offset: 2px;
 }

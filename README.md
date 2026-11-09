@@ -2,7 +2,7 @@
 
 一款开源的 **React 组件库**。
 
-[在线演示（GitHub Pages）](https://sofazhu.github.io/sofa-ui/) · [组件与主题 API 文档](docs/api/README.md)
+[在线演示（GitHub Pages）](https://sofazhu.github.io/sofa-ui/) · [在线 API 总文档](https://sofazhu.github.io/sofa-ui/#api)
 
 **核心设计理念：「单一主色 · 全色系自动调配」**
 
@@ -63,7 +63,7 @@ npm run typecheck  # 类型检查
 
 ## 组件文档
 
-[API 索引](docs/api/README.md)按主题与通用、布局、导航、数据录入、浮层与反馈、数据展示分类。每份模块文档包含包根导入示例、运行时方法、属性、回调类型和默认值。
+[API 索引](docs/api/README.md)按主题与通用、布局、导航、数据录入、浮层与反馈、数据展示分类。每份模块文档包含包根导入示例、运行时方法、属性、回调类型和默认值。在线演示中可直接展开各模块下的 API 文档，也可从在线总文档按分类查看。
 
 ## 演示站发布
 
